@@ -200,6 +200,7 @@
             this.addDirectorButton.TabIndex = 16;
             this.addDirectorButton.Text = "+";
             this.addDirectorButton.UseVisualStyleBackColor = true;
+            this.addDirectorButton.Click += new System.EventHandler(this.addDirectorButton_Click);
             // 
             // addLanguageButton
             // 
