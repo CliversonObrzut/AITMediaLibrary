@@ -66,6 +66,21 @@ namespace AITMediaLibrary
             Application.Run(new AddLanguageForm());
         }
 
+        private void addDirectorButton_Click(object sender, EventArgs e)
+        {
+            System.Threading.Thread t = new System.Threading.Thread(OpenAddDirector);
+            t.Start();
+            while (t.IsAlive)
+            {
+
+            }
+            FillDirectorComboBox();
+        }
+
+        private static void OpenAddDirector()
+        {
+            Application.Run(new AddDirectorForm());
+        }
 
         private void FillGenreComboBox()
         {
@@ -99,7 +114,5 @@ namespace AITMediaLibrary
         {
             Application.Run(new AdminForm());
         }
-
-
     }
 }
