@@ -209,6 +209,7 @@
             this.addLanguageButton.TabIndex = 17;
             this.addLanguageButton.Text = "+";
             this.addLanguageButton.UseVisualStyleBackColor = true;
+            this.addLanguageButton.Click += new System.EventHandler(this.addLanguageButton_Click);
             // 
             // userAdminButton
             // 

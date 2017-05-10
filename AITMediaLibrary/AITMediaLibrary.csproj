@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddLanguageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddLanguageForm.Designer.cs">
+      <DependentUpon>AddLanguageForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddGenreForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +86,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddLanguageForm.resx">
+      <DependentUpon>AddLanguageForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddGenreForm.resx">
       <DependentUpon>AddGenreForm.cs</DependentUpon>
     </EmbeddedResource>

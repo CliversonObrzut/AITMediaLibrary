@@ -1,10 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using Business_Logic;
 
@@ -55,6 +50,23 @@ namespace AITMediaLibrary
             Application.Run(new AddGenreForm());
         }
 
+        private void addLanguageButton_Click(object sender, EventArgs e)
+        {
+            System.Threading.Thread t = new System.Threading.Thread(OpenAddLanguage);
+            t.Start();
+            while (t.IsAlive)
+            {
+
+            }
+            FillLanguageComboBox();
+        }
+
+        private static void OpenAddLanguage()
+        {
+            Application.Run(new AddLanguageForm());
+        }
+
+
         private void FillGenreComboBox()
         {
             genreComboBox.DataSource = _mediaLogic.ListGenre();
@@ -62,14 +74,14 @@ namespace AITMediaLibrary
             genreComboBox.DisplayMember = "PairName";
         }
 
-        private void FillLanguageComboBox()
+        private void FillDirectorComboBox()
         {
             directorComboBox.DataSource = _mediaLogic.ListDirector();
             directorComboBox.ValueMember = "PairID";
             directorComboBox.DisplayMember = "PairName";
         }
 
-        private void FillDirectorComboBox()
+        private void FillLanguageComboBox()
         {
             languageComboBox.DataSource = _mediaLogic.ListLanguage();
             languageComboBox.ValueMember = "PairID";
@@ -87,5 +99,7 @@ namespace AITMediaLibrary
         {
             Application.Run(new AdminForm());
         }
+
+
     }
 }
