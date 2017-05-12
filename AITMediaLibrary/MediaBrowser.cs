@@ -22,8 +22,8 @@ namespace AITMediaLibrary
                 List<MediaModel> medias = _mediaLogic.ListMedia();
                 mediaGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
                 mediaGridView.DataSource = medias;
-                userLabel.Text = @"Username: " + CurrentUser.UserName;
-                levelLabel.Text = @"Level: " + CurrentUser.UserLevel;
+                userLabel.Text = @"User:  " + CurrentUser.UserName;
+                levelLabel.Text = @"Level:  " + CurrentUser.UserLevel;
                 SelectedMediaOnLoad(medias);
                 CleanTextBoxes();
             }
@@ -175,6 +175,21 @@ namespace AITMediaLibrary
                 budgetTextBox.Text = "";
             if(num != 0)
                 errorDBLoadingLabel.Text = "";
+        }
+
+        private void logoutButton_Click(object sender, EventArgs e)
+        {
+            CurrentUser.UserName = "";
+            CurrentUser.UserLevel = 0;
+
+            System.Threading.Thread t = new System.Threading.Thread(OpenLoginForm);
+            t.Start();
+            Close();
+        }
+
+        private static void OpenLoginForm()
+        {
+            Application.Run(new Login());
         }
     }
 }
