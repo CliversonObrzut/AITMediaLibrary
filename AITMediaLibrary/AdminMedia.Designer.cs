@@ -37,8 +37,8 @@
             this.publishYearLabel = new System.Windows.Forms.Label();
             this.budgetLabel = new System.Windows.Forms.Label();
             this.titleTextBox = new System.Windows.Forms.TextBox();
-            this.publishYearTextYear = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.publishYearTextBox = new System.Windows.Forms.TextBox();
+            this.budgetTextBox = new System.Windows.Forms.TextBox();
             this.genreComboBox = new System.Windows.Forms.ComboBox();
             this.directorComboBox = new System.Windows.Forms.ComboBox();
             this.languageComboBox = new System.Windows.Forms.ComboBox();
@@ -135,19 +135,19 @@
             this.titleTextBox.Size = new System.Drawing.Size(265, 20);
             this.titleTextBox.TabIndex = 8;
             // 
-            // publishYearTextYear
+            // publishYearTextBox
             // 
-            this.publishYearTextYear.Location = new System.Drawing.Point(98, 410);
-            this.publishYearTextYear.Name = "publishYearTextYear";
-            this.publishYearTextYear.Size = new System.Drawing.Size(265, 20);
-            this.publishYearTextYear.TabIndex = 9;
+            this.publishYearTextBox.Location = new System.Drawing.Point(98, 410);
+            this.publishYearTextBox.Name = "publishYearTextBox";
+            this.publishYearTextBox.Size = new System.Drawing.Size(265, 20);
+            this.publishYearTextBox.TabIndex = 9;
             // 
-            // textBox3
+            // budgetTextBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(98, 440);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(265, 20);
-            this.textBox3.TabIndex = 10;
+            this.budgetTextBox.Location = new System.Drawing.Point(98, 440);
+            this.budgetTextBox.Name = "budgetTextBox";
+            this.budgetTextBox.Size = new System.Drawing.Size(265, 20);
+            this.budgetTextBox.TabIndex = 10;
             // 
             // genreComboBox
             // 
@@ -181,6 +181,7 @@
             this.addMediaButton.TabIndex = 14;
             this.addMediaButton.Text = "Add Media";
             this.addMediaButton.UseVisualStyleBackColor = true;
+            this.addMediaButton.Click += new System.EventHandler(this.addMediaButton_Click);
             // 
             // addGenreButton
             // 
@@ -236,8 +237,8 @@
             this.Controls.Add(this.languageComboBox);
             this.Controls.Add(this.directorComboBox);
             this.Controls.Add(this.genreComboBox);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.publishYearTextYear);
+            this.Controls.Add(this.budgetTextBox);
+            this.Controls.Add(this.publishYearTextBox);
             this.Controls.Add(this.titleTextBox);
             this.Controls.Add(this.budgetLabel);
             this.Controls.Add(this.publishYearLabel);
@@ -267,8 +268,8 @@
         private System.Windows.Forms.Label publishYearLabel;
         private System.Windows.Forms.Label budgetLabel;
         private System.Windows.Forms.TextBox titleTextBox;
-        private System.Windows.Forms.TextBox publishYearTextYear;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox publishYearTextBox;
+        private System.Windows.Forms.TextBox budgetTextBox;
         private System.Windows.Forms.ComboBox genreComboBox;
         private System.Windows.Forms.ComboBox directorComboBox;
         private System.Windows.Forms.ComboBox languageComboBox;

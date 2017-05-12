@@ -114,5 +114,15 @@ namespace AITMediaLibrary
         {
             Application.Run(new AdminForm());
         }
+
+        private void addMediaButton_Click(object sender, EventArgs e)
+        {
+            _mediaLogic.AddNewMedia(titleTextBox.Text, 
+                                    int.Parse(genreComboBox.Text), 
+                                    int.Parse(directorComboBox.Text), 
+                                    int.Parse(languageComboBox.Text), 
+                                    int.Parse(publishYearTextBox.Text), 
+                                    decimal.Parse(budgetTextBox.Text));
+        }
     }
 }

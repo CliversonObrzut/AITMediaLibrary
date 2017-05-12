@@ -28,22 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.genreNameLabel = new System.Windows.Forms.Label();
             this.addGenreTextBox = new System.Windows.Forms.TextBox();
             this.addGenreButton = new System.Windows.Forms.Button();
             this.cancelAddGenreButton = new System.Windows.Forms.Button();
             this.errAddGenreLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // label1
+            // genreNameLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(23, 32);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Genre Name:";
+            this.genreNameLabel.AutoSize = true;
+            this.genreNameLabel.ForeColor = System.Drawing.Color.White;
+            this.genreNameLabel.Location = new System.Drawing.Point(23, 32);
+            this.genreNameLabel.Name = "genreNameLabel";
+            this.genreNameLabel.Size = new System.Drawing.Size(70, 13);
+            this.genreNameLabel.TabIndex = 0;
+            this.genreNameLabel.Text = "Genre Name:";
             // 
             // addGenreTextBox
             // 
@@ -76,8 +76,8 @@
             // errAddGenreLabel
             // 
             this.errAddGenreLabel.AutoSize = true;
-            this.errAddGenreLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.errAddGenreLabel.ForeColor = System.Drawing.Color.Red;
+            this.errAddGenreLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.errAddGenreLabel.ForeColor = System.Drawing.Color.DarkRed;
             this.errAddGenreLabel.Location = new System.Drawing.Point(26, 76);
             this.errAddGenreLabel.Name = "errAddGenreLabel";
             this.errAddGenreLabel.Size = new System.Drawing.Size(0, 13);
@@ -93,7 +93,7 @@
             this.Controls.Add(this.cancelAddGenreButton);
             this.Controls.Add(this.addGenreButton);
             this.Controls.Add(this.addGenreTextBox);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.genreNameLabel);
             this.Name = "AddGenreForm";
             this.Text = "Add Genre";
             this.ResumeLayout(false);
@@ -103,7 +103,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label genreNameLabel;
         private System.Windows.Forms.TextBox addGenreTextBox;
         private System.Windows.Forms.Button addGenreButton;
         private System.Windows.Forms.Button cancelAddGenreButton;
