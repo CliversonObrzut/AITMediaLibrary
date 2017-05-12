@@ -118,9 +118,9 @@ namespace AITMediaLibrary
         private void addMediaButton_Click(object sender, EventArgs e)
         {
             _mediaLogic.AddNewMedia(titleTextBox.Text, 
-                                    int.Parse(genreComboBox.Text), 
-                                    int.Parse(directorComboBox.Text), 
-                                    int.Parse(languageComboBox.Text), 
+                                    int.Parse(genreComboBox.SelectedValue.ToString()), 
+                                    int.Parse(directorComboBox.SelectedValue.ToString()), 
+                                    int.Parse(languageComboBox.SelectedValue.ToString()), 
                                     int.Parse(publishYearTextBox.Text), 
                                     decimal.Parse(budgetTextBox.Text));
         }

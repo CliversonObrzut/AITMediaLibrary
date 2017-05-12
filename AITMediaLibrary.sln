@@ -1,11 +1,13 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual C# Express 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AITMediaLibrary", "AITMediaLibrary\AITMediaLibrary.csproj", "{2DEBF7CE-4B06-437D-9265-D3AC0F327EC8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data Access", "..\Data Access\Data Access.csproj", "{2D9581A4-7009-483C-982F-7894B2EE7685}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business Logic", "Business Logic\Business Logic.csproj", "{2E51CB6D-F27F-48DF-8674-829E8B8DE575}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business Logic", "..\Business Logic\Business Logic\Business Logic.csproj", "{2E51CB6D-F27F-48DF-8674-829E8B8DE575}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data Access", "Data Access\Data Access.csproj", "{2D9581A4-7009-483C-982F-7894B2EE7685}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,26 +29,30 @@ Global
 		{2DEBF7CE-4B06-437D-9265-D3AC0F327EC8}.Release|Mixed Platforms.Build.0 = Release|x86
 		{2DEBF7CE-4B06-437D-9265-D3AC0F327EC8}.Release|x86.ActiveCfg = Release|x86
 		{2DEBF7CE-4B06-437D-9265-D3AC0F327EC8}.Release|x86.Build.0 = Release|x86
-		{2D9581A4-7009-483C-982F-7894B2EE7685}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2D9581A4-7009-483C-982F-7894B2EE7685}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2D9581A4-7009-483C-982F-7894B2EE7685}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{2D9581A4-7009-483C-982F-7894B2EE7685}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{2D9581A4-7009-483C-982F-7894B2EE7685}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{2D9581A4-7009-483C-982F-7894B2EE7685}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2D9581A4-7009-483C-982F-7894B2EE7685}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2D9581A4-7009-483C-982F-7894B2EE7685}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{2D9581A4-7009-483C-982F-7894B2EE7685}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{2D9581A4-7009-483C-982F-7894B2EE7685}.Release|x86.ActiveCfg = Release|Any CPU
 		{2E51CB6D-F27F-48DF-8674-829E8B8DE575}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2E51CB6D-F27F-48DF-8674-829E8B8DE575}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E51CB6D-F27F-48DF-8674-829E8B8DE575}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
 		{2E51CB6D-F27F-48DF-8674-829E8B8DE575}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
 		{2E51CB6D-F27F-48DF-8674-829E8B8DE575}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2E51CB6D-F27F-48DF-8674-829E8B8DE575}.Debug|x86.Build.0 = Debug|Any CPU
 		{2E51CB6D-F27F-48DF-8674-829E8B8DE575}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E51CB6D-F27F-48DF-8674-829E8B8DE575}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2E51CB6D-F27F-48DF-8674-829E8B8DE575}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{2E51CB6D-F27F-48DF-8674-829E8B8DE575}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{2E51CB6D-F27F-48DF-8674-829E8B8DE575}.Release|x86.ActiveCfg = Release|Any CPU
+		{2E51CB6D-F27F-48DF-8674-829E8B8DE575}.Release|x86.Build.0 = Release|Any CPU
+		{2D9581A4-7009-483C-982F-7894B2EE7685}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D9581A4-7009-483C-982F-7894B2EE7685}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D9581A4-7009-483C-982F-7894B2EE7685}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{2D9581A4-7009-483C-982F-7894B2EE7685}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{2D9581A4-7009-483C-982F-7894B2EE7685}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2D9581A4-7009-483C-982F-7894B2EE7685}.Debug|x86.Build.0 = Debug|Any CPU
+		{2D9581A4-7009-483C-982F-7894B2EE7685}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D9581A4-7009-483C-982F-7894B2EE7685}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D9581A4-7009-483C-982F-7894B2EE7685}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{2D9581A4-7009-483C-982F-7894B2EE7685}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{2D9581A4-7009-483C-982F-7894B2EE7685}.Release|x86.ActiveCfg = Release|Any CPU
+		{2D9581A4-7009-483C-982F-7894B2EE7685}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
