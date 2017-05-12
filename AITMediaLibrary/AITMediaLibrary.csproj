@@ -79,17 +79,17 @@
     <Compile Include="AddGenreForm.Designer.cs">
       <DependentUpon>AddGenreForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminForm.cs">
+    <Compile Include="AdminUserForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminForm.Designer.cs">
-      <DependentUpon>AdminForm.cs</DependentUpon>
+    <Compile Include="AdminUserForm.Designer.cs">
+      <DependentUpon>AdminUserForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminMedia.cs">
+    <Compile Include="AdminMediaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminMedia.Designer.cs">
-      <DependentUpon>AdminMedia.cs</DependentUpon>
+    <Compile Include="AdminMediaForm.Designer.cs">
+      <DependentUpon>AdminMediaForm.cs</DependentUpon>
     </Compile>
     <Compile Include="AppEnum.cs" />
     <Compile Include="CurrentUser.cs" />
@@ -116,11 +116,11 @@
     <EmbeddedResource Include="AddGenreForm.resx">
       <DependentUpon>AddGenreForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminForm.resx">
-      <DependentUpon>AdminForm.cs</DependentUpon>
+    <EmbeddedResource Include="AdminUserForm.resx">
+      <DependentUpon>AdminUserForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminMedia.resx">
-      <DependentUpon>AdminMedia.cs</DependentUpon>
+    <EmbeddedResource Include="AdminMediaForm.resx">
+      <DependentUpon>AdminMediaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -136,6 +136,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

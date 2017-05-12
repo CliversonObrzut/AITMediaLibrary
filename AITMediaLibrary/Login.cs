@@ -44,7 +44,7 @@ namespace AITMediaLibrary
 
         private static void OpenAdminForm()
         {
-            Application.Run(new AdminForm());
+            Application.Run(new AdminUserForm());
         }
 
         public static void OpenMediaBrowser()

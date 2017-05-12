@@ -41,7 +41,7 @@
             this.directorNameLabel.ForeColor = System.Drawing.Color.White;
             this.directorNameLabel.Location = new System.Drawing.Point(23, 32);
             this.directorNameLabel.Name = "directorNameLabel";
-            this.directorNameLabel.Size = new System.Drawing.Size(70, 13);
+            this.directorNameLabel.Size = new System.Drawing.Size(78, 13);
             this.directorNameLabel.TabIndex = 0;
             this.directorNameLabel.Text = "Director Name:";
             // 
@@ -76,11 +76,11 @@
             // errAddDirectorLabel
             // 
             this.errAddDirectorLabel.AutoSize = true;
-            this.errAddDirectorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.errAddDirectorLabel.ForeColor = System.Drawing.Color.Red;
+            this.errAddDirectorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.errAddDirectorLabel.ForeColor = System.Drawing.Color.DarkRed;
             this.errAddDirectorLabel.Location = new System.Drawing.Point(26, 76);
             this.errAddDirectorLabel.Name = "errAddDirectorLabel";
-            this.errAddDirectorLabel.Size = new System.Drawing.Size(0, 13);
+            this.errAddDirectorLabel.Size = new System.Drawing.Size(0, 15);
             this.errAddDirectorLabel.TabIndex = 4;
             // 
             // AddDirectorForm

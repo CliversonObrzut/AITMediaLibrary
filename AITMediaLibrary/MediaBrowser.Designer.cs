@@ -155,7 +155,7 @@
             this.errorDBLoadingLabel.AutoSize = true;
             this.errorDBLoadingLabel.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.errorDBLoadingLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.errorDBLoadingLabel.ForeColor = System.Drawing.Color.Red;
+            this.errorDBLoadingLabel.ForeColor = System.Drawing.Color.DarkRed;
             this.errorDBLoadingLabel.Location = new System.Drawing.Point(57, 379);
             this.errorDBLoadingLabel.Name = "errorDBLoadingLabel";
             this.errorDBLoadingLabel.Size = new System.Drawing.Size(0, 15);

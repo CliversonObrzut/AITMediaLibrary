@@ -1,6 +1,6 @@
 ﻿namespace AITMediaLibrary
 {
-    partial class AdminForm
+    partial class AdminUserForm
     {
         /// <summary>
         /// Required designer variable.

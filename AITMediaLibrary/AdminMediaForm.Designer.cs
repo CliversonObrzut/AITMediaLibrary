@@ -1,6 +1,6 @@
 ﻿namespace AITMediaLibrary
 {
-    partial class AdminMedia
+    partial class AdminMediaForm
     {
         /// <summary>
         /// Required designer variable.
@@ -248,7 +248,7 @@
             this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.mediaGridView);
             this.Controls.Add(this.listOfMediaLabel);
-            this.Name = "AdminMedia";
+            this.Name = "AdminMediaForm";
             this.Text = "Media Admin";
             this.Load += new System.EventHandler(this.AdminMedia_Load);
             ((System.ComponentModel.ISupportInitialize)(this.mediaGridView)).EndInit();

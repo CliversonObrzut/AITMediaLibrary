@@ -1,22 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using Business_Logic;
 
 namespace AITMediaLibrary
 {
-    public partial class AdminForm : Form
+    public partial class AdminUserForm : Form
     {
         private readonly UserLogic _userLogic = new UserLogic();
 
-        private UserModel _selectedUser = null;
+        private UserModel _selectedUser;
 
-        public AdminForm()
+        public AdminUserForm()
         {
             InitializeComponent();
         }
@@ -41,7 +37,7 @@ namespace AITMediaLibrary
                 // a list of user models
                 List<UserModel> users = (List<UserModel>)userGridView.DataSource;
 
-                _selectedUser = users.ElementAt<UserModel>(row);//get from this position
+                _selectedUser = users.ElementAt(row);//get from this position
             }
         }
 
@@ -59,7 +55,7 @@ namespace AITMediaLibrary
                 if (rowsAffected > 0)
                 {
                     //worked
-                    MessageBox.Show(_selectedUser.UserName + " password updated!");
+                    MessageBox.Show(_selectedUser.UserName + @" password updated!");
                 }
                 else
                 {
@@ -73,7 +69,7 @@ namespace AITMediaLibrary
         {
             if (_selectedUser != null)
             {
-                int affectedRows = _userLogic.DeleteUserByUserID(_selectedUser.UserID, CurrentUser.UserLevel);
+                _userLogic.DeleteUserByUserID(_selectedUser.UserID, CurrentUser.UserLevel);
 
                 _selectedUser = null;
 
@@ -87,7 +83,7 @@ namespace AITMediaLibrary
             //get enum back out of datasource of combo box......................
             AppEnum.UserLevel userLevel = (AppEnum.UserLevel)Enum.Parse(typeof(AppEnum.UserLevel), userLevelComboBox.Text);
 
-            int affectedRows = _userLogic.AddNewUser(userNameTextBox.Text, passwordTextBox.Text, (int)userLevel, emailTextBox.Text);
+            _userLogic.AddNewUser(userNameTextBox.Text, passwordTextBox.Text, (int)userLevel, emailTextBox.Text);
             //if affectedRows > 0, sucess!
 
             Refresh();
@@ -102,7 +98,7 @@ namespace AITMediaLibrary
 
         private static void OpenAdminMedia()
         {
-            Application.Run(new AdminMedia());
+            Application.Run(new AdminMediaForm());
         }
     }
 }

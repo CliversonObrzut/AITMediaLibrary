@@ -5,10 +5,10 @@ using Business_Logic;
 
 namespace AITMediaLibrary
 {
-    public partial class AdminMedia : Form
+    public partial class AdminMediaForm : Form
     {
         private readonly MediaLogic _mediaLogic;
-        public AdminMedia()
+        public AdminMediaForm()
         {
             InitializeComponent();
             _mediaLogic = new MediaLogic();
@@ -112,7 +112,7 @@ namespace AITMediaLibrary
 
         private static void OpenUserAdmin()
         {
-            Application.Run(new AdminForm());
+            Application.Run(new AdminUserForm());
         }
 
         private void addMediaButton_Click(object sender, EventArgs e)
