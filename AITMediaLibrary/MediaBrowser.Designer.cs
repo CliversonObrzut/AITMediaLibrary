@@ -55,13 +55,13 @@
             this.levelLabel = new System.Windows.Forms.Label();
             this.filtersLabel = new System.Windows.Forms.Label();
             this.listMediaLabel = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.logoPictureBox = new System.Windows.Forms.PictureBox();
             this.logoutButton = new System.Windows.Forms.Button();
             this.filtersGridView = new System.Windows.Forms.DataGridView();
             this.selectedMediaGridView = new System.Windows.Forms.DataGridView();
             this.userGridView = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.mediaGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.filtersGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.selectedMediaGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userGridView)).BeginInit();
@@ -81,6 +81,7 @@
             // 
             this.mediaGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.mediaGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.mediaGridView.BackgroundColor = System.Drawing.Color.White;
             this.mediaGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.mediaGridView.Location = new System.Drawing.Point(52, 95);
             this.mediaGridView.Name = "mediaGridView";
@@ -313,14 +314,14 @@
             this.listMediaLabel.TabIndex = 26;
             this.listMediaLabel.Text = "Medias List:";
             // 
-            // pictureBox1
+            // logoPictureBox
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(52, 13);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(218, 46);
-            this.pictureBox1.TabIndex = 27;
-            this.pictureBox1.TabStop = false;
+            this.logoPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("logoPictureBox.Image")));
+            this.logoPictureBox.Location = new System.Drawing.Point(52, 13);
+            this.logoPictureBox.Name = "logoPictureBox";
+            this.logoPictureBox.Size = new System.Drawing.Size(218, 46);
+            this.logoPictureBox.TabIndex = 27;
+            this.logoPictureBox.TabStop = false;
             // 
             // logoutButton
             // 
@@ -366,7 +367,7 @@
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(891, 522);
             this.Controls.Add(this.logoutButton);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.logoPictureBox);
             this.Controls.Add(this.listMediaLabel);
             this.Controls.Add(this.filtersLabel);
             this.Controls.Add(this.levelLabel);
@@ -401,7 +402,7 @@
             this.Text = "Media Browser";
             this.Load += new System.EventHandler(this.MediaBrowser_Load);
             ((System.ComponentModel.ISupportInitialize)(this.mediaGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.filtersGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.selectedMediaGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userGridView)).EndInit();
@@ -438,7 +439,7 @@
         private System.Windows.Forms.Label levelLabel;
         private System.Windows.Forms.Label filtersLabel;
         private System.Windows.Forms.Label listMediaLabel;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox logoPictureBox;
         private System.Windows.Forms.Button logoutButton;
         private System.Windows.Forms.DataGridView filtersGridView;
         private System.Windows.Forms.DataGridView selectedMediaGridView;

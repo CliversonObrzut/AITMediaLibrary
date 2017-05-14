@@ -30,6 +30,15 @@ namespace Business_Logic
             return users;
         }
 
+        public List<UserModel> GetListOfUsersByUserName(string username)
+        {
+            List<UserModel> users = new List<UserModel>();
+            UserDS.TabUserDataTable userTable = _userDAO.GetUserByUserName(username);
+
+            GetListOfUsersFromDataTable(users, userTable);
+            return users;
+        }
+
         private static void GetListOfUsersFromDataTable(List<UserModel> users, UserDS.TabUserDataTable userTable)
         {
             foreach (UserDS.TabUserRow row in userTable.Rows)

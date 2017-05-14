@@ -40,6 +40,19 @@ namespace Data_Access
             }
         }
 
+        public UserDS.TabUserDataTable GetUserByUserName(string username)
+        {
+            try
+            {
+                _tabUserTableAdapter.FillByUserName(_userDataSet.TabUser, username);
+                return _userDataSet.TabUser;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
         public int InsertNewUser(string userName, string password, int userLevel, string email)
         {
             return _tabUserTableAdapter.InsertNewUser(userName, password, userLevel, email);
