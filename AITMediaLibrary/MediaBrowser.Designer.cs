@@ -71,7 +71,7 @@
             // 
             this.userLabel.AutoSize = true;
             this.userLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.userLabel.Location = new System.Drawing.Point(305, 68);
+            this.userLabel.Location = new System.Drawing.Point(642, 68);
             this.userLabel.Name = "userLabel";
             this.userLabel.Size = new System.Drawing.Size(35, 13);
             this.userLabel.TabIndex = 0;
@@ -288,7 +288,7 @@
             // 
             this.levelLabel.AutoSize = true;
             this.levelLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.levelLabel.Location = new System.Drawing.Point(490, 68);
+            this.levelLabel.Location = new System.Drawing.Point(766, 68);
             this.levelLabel.Name = "levelLabel";
             this.levelLabel.Size = new System.Drawing.Size(36, 13);
             this.levelLabel.TabIndex = 23;
@@ -348,16 +348,16 @@
             this.selectedMediaGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.selectedMediaGridView.Location = new System.Drawing.Point(52, 323);
             this.selectedMediaGridView.Name = "selectedMediaGridView";
-            this.selectedMediaGridView.Size = new System.Drawing.Size(605, 23);
+            this.selectedMediaGridView.Size = new System.Drawing.Size(358, 23);
             this.selectedMediaGridView.TabIndex = 30;
             // 
             // userGridView
             // 
             this.userGridView.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
             this.userGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.userGridView.Location = new System.Drawing.Point(297, 61);
+            this.userGridView.Location = new System.Drawing.Point(634, 61);
             this.userGridView.Name = "userGridView";
-            this.userGridView.Size = new System.Drawing.Size(254, 28);
+            this.userGridView.Size = new System.Drawing.Size(193, 28);
             this.userGridView.TabIndex = 31;
             // 
             // MediaBrowser

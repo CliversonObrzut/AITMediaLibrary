@@ -51,5 +51,11 @@ namespace AITMediaLibrary
         {
             Application.Run(new MediaBrowser());
         }
+
+        private void EnterKey_press(object sender, KeyEventArgs e)
+        {
+            if(e.KeyValue == 13)
+                button1_Click(sender, e);
+        }
     }
 }
