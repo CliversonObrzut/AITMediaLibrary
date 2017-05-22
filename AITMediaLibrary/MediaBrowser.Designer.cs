@@ -122,7 +122,7 @@
             // 
             // listAllButton
             // 
-            this.listAllButton.Location = new System.Drawing.Point(701, 323);
+            this.listAllButton.Location = new System.Drawing.Point(437, 323);
             this.listAllButton.Name = "listAllButton";
             this.listAllButton.Size = new System.Drawing.Size(126, 23);
             this.listAllButton.TabIndex = 5;
@@ -375,7 +375,7 @@
             // 
             // borrowButton
             // 
-            this.borrowButton.Location = new System.Drawing.Point(437, 323);
+            this.borrowButton.Location = new System.Drawing.Point(700, 323);
             this.borrowButton.Name = "borrowButton";
             this.borrowButton.Size = new System.Drawing.Size(126, 23);
             this.borrowButton.TabIndex = 33;
