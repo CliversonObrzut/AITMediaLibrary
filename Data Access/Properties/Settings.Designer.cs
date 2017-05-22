@@ -12,7 +12,7 @@ namespace Data_Access.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "10.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "14.0.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -31,6 +31,17 @@ namespace Data_Access.Properties {
         public string DB_9AB8B7_6101ConnectionString {
             get {
                 return ((string)(this["DB_9AB8B7_6101ConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=SQL5032.myWindowsHosting.com;Initial Catalog=DB_9AB8B7_6204;User ID=D" +
+            "B_9AB8B7_6204_admin;Password=yksmKQ7L")]
+        public string DB_9AB8B7_6204ConnectionString {
+            get {
+                return ((string)(this["DB_9AB8B7_6204ConnectionString"]));
             }
         }
     }

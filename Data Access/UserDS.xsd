@@ -2,14 +2,15 @@
 <xs:schema id="UserDS" targetNamespace="http://tempuri.org/UserDS.xsd" xmlns:mstns="http://tempuri.org/UserDS.xsd" xmlns="http://tempuri.org/UserDS.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
-      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
           <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="DB_9AB8B7_6101ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="DB_9AB8B7_6101ConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Data_Access.Properties.Settings.GlobalReference.Default.DB_9AB8B7_6101ConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="DB_9AB8B7_6204ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="DB_9AB8B7_6204ConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Data_Access.Properties.Settings.GlobalReference.Default.DB_9AB8B7_6204ConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TabUserTableAdapter" GeneratorDataComponentClassName="TabUserTableAdapter" Name="TabUser" UserDataComponentName="TabUserTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="DB_9AB8B7_6101ConnectionString (Settings)" DbObjectName="DB_9AB8B7_6101.dbo.TabUser" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillAll" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataAll" GeneratorSourceName="FillAll" GetMethodModifier="Public" GetMethodName="GetDataAll" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataAll" UserSourceName="FillAll">
+              <DbSource ConnectionRef="DB_9AB8B7_6204ConnectionString (Settings)" DbObjectName="DB_9AB8B7_6204.dbo.TabUser" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillAll" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataAll" GeneratorSourceName="FillAll" GetMethodModifier="Public" GetMethodName="GetDataAll" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataAll" UserSourceName="FillAll">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [TabUser] WHERE (([UID] = @Original_UID) AND ([UserName] = @Original_UserName) AND ([Password] = @Original_Password) AND ([UserLevel] = @Original_UserLevel) AND ([UserEmail] = @Original_UserEmail))</CommandText>
@@ -69,7 +70,7 @@ SELECT UID, UserName, Password, UserLevel, UserEmail FROM TabUser WHERE (UID = @
               <Mapping SourceColumn="UserEmail" DataSetColumn="UserEmail" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="DB_9AB8B7_6101ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteUserByUserID" Modifier="Public" Name="DeleteUserByUserID" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="DeleteUserByUserID">
+              <DbSource ConnectionRef="DB_9AB8B7_6204ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteUserByUserID" Modifier="Public" Name="DeleteUserByUserID" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="DeleteUserByUserID">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>DELETE FROM TabUser
@@ -80,7 +81,7 @@ WHERE        (UID = @UID)</CommandText>
                   </DbCommand>
                 </DeleteCommand>
               </DbSource>
-              <DbSource ConnectionRef="DB_9AB8B7_6101ConnectionString (Settings)" DbObjectName="DB_9AB8B7_6101.dbo.TabUser" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByUserName" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByUserName" GeneratorSourceName="FillByUserName" GetMethodModifier="Public" GetMethodName="GetDataByUserName" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByUserName" UserSourceName="FillByUserName">
+              <DbSource ConnectionRef="DB_9AB8B7_6204ConnectionString (Settings)" DbObjectName="DB_9AB8B7_6204.dbo.TabUser" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByUserName" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByUserName" GeneratorSourceName="FillByUserName" GetMethodModifier="Public" GetMethodName="GetDataByUserName" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByUserName" UserSourceName="FillByUserName">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        UID, UserName, Password, UserLevel, UserEmail
@@ -92,7 +93,7 @@ WHERE        (UserName LIKE '%' + @USERNAME + '%')</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="DB_9AB8B7_6101ConnectionString (Settings)" DbObjectName="DB_9AB8B7_6101.dbo.TabUser" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByUserNamePassword" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByUserNamePassword" GeneratorSourceName="FillByUserNamePassword" GetMethodModifier="Public" GetMethodName="GetDataByUserNamePassword" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByUserNamePassword" UserSourceName="FillByUserNamePassword">
+              <DbSource ConnectionRef="DB_9AB8B7_6204ConnectionString (Settings)" DbObjectName="DB_9AB8B7_6204.dbo.TabUser" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByUserNamePassword" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByUserNamePassword" GeneratorSourceName="FillByUserNamePassword" GetMethodModifier="Public" GetMethodName="GetDataByUserNamePassword" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByUserNamePassword" UserSourceName="FillByUserNamePassword">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        UID, UserName, Password, UserLevel, UserEmail
@@ -105,7 +106,7 @@ WHERE        (UserName = @USERNAME) AND (Password = @PASSWORD)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="DB_9AB8B7_6101ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertNewUser" Modifier="Public" Name="InsertNewUser" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="InsertNewUser">
+              <DbSource ConnectionRef="DB_9AB8B7_6204ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertNewUser" Modifier="Public" Name="InsertNewUser" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="InsertNewUser">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>INSERT INTO [TabUser] ([UserName], [Password], [UserLevel], [UserEmail]) VALUES (@UserName, @Password, @UserLevel, @UserEmail);
@@ -119,7 +120,7 @@ SELECT UID, UserName, Password, UserLevel, UserEmail FROM TabUser WHERE (UID = S
                   </DbCommand>
                 </InsertCommand>
               </DbSource>
-              <DbSource ConnectionRef="DB_9AB8B7_6101ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdatePassword" Modifier="Public" Name="UpdatePassword" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="UpdatePassword">
+              <DbSource ConnectionRef="DB_9AB8B7_6204ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdatePassword" Modifier="Public" Name="UpdatePassword" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="UpdatePassword">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE       TabUser
@@ -143,7 +144,7 @@ SELECT UID, UserName, Password, UserLevel, UserEmail FROM TabUser WHERE (UID = @
   <xs:element name="UserDS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="UserDS" msprop:Generator_UserDSName="UserDS">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="TabUser" msprop:Generator_TableClassName="TabUserDataTable" msprop:Generator_TableVarName="tableTabUser" msprop:Generator_RowChangedName="TabUserRowChanged" msprop:Generator_TablePropName="TabUser" msprop:Generator_RowDeletingName="TabUserRowDeleting" msprop:Generator_RowChangingName="TabUserRowChanging" msprop:Generator_RowEvHandlerName="TabUserRowChangeEventHandler" msprop:Generator_RowDeletedName="TabUserRowDeleted" msprop:Generator_RowClassName="TabUserRow" msprop:Generator_UserTableName="TabUser" msprop:Generator_RowEvArgName="TabUserRowChangeEvent">
+        <xs:element name="TabUser" msprop:Generator_TableClassName="TabUserDataTable" msprop:Generator_TableVarName="tableTabUser" msprop:Generator_TablePropName="TabUser" msprop:Generator_RowDeletingName="TabUserRowDeleting" msprop:Generator_RowChangingName="TabUserRowChanging" msprop:Generator_RowEvHandlerName="TabUserRowChangeEventHandler" msprop:Generator_RowDeletedName="TabUserRowDeleted" msprop:Generator_UserTableName="TabUser" msprop:Generator_RowChangedName="TabUserRowChanged" msprop:Generator_RowEvArgName="TabUserRowChangeEvent" msprop:Generator_RowClassName="TabUserRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="UID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnUID" msprop:Generator_ColumnPropNameInRow="UID" msprop:Generator_ColumnPropNameInTable="UIDColumn" msprop:Generator_UserColumnName="UID" type="xs:int" />

@@ -2,14 +2,15 @@
 <xs:schema id="MediaDS" targetNamespace="http://tempuri.org/MediaDS.xsd" xmlns:mstns="http://tempuri.org/MediaDS.xsd" xmlns="http://tempuri.org/MediaDS.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
-      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
           <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="DB_9AB8B7_6101ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="DB_9AB8B7_6101ConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Data_Access.Properties.Settings.GlobalReference.Default.DB_9AB8B7_6101ConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="DB_9AB8B7_6204ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="DB_9AB8B7_6204ConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Data_Access.Properties.Settings.GlobalReference.Default.DB_9AB8B7_6204ConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ViewMediaTableAdapter" GeneratorDataComponentClassName="ViewMediaTableAdapter" Name="ViewMedia" UserDataComponentName="ViewMediaTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="DB_9AB8B7_6101ConnectionString (Settings)" DbObjectName="DB_9AB8B7_6101.dbo.ViewMedia" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="DB_9AB8B7_6204ConnectionString (Settings)" DbObjectName="DB_9AB8B7_6204.dbo.ViewMedia" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>SELECT MediaID, Title, GenreName, DirectorName, LanguageName, PublishYear, Budget, Genre, Director, Language FROM dbo.ViewMedia</CommandText>
@@ -31,7 +32,7 @@
               <Mapping SourceColumn="Language" DataSetColumn="Language" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="DB_9AB8B7_6101ConnectionString (Settings)" DbObjectName="DB_9AB8B7_6101.dbo.ViewMedia" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillByBudget" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByBudget" GeneratorSourceName="FillByBudget" GetMethodModifier="Public" GetMethodName="GetDataByBudget" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByBudget" UserSourceName="FillByBudget">
+              <DbSource ConnectionRef="DB_9AB8B7_6204ConnectionString (Settings)" DbObjectName="DB_9AB8B7_6204.dbo.ViewMedia" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillByBudget" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByBudget" GeneratorSourceName="FillByBudget" GetMethodModifier="Public" GetMethodName="GetDataByBudget" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByBudget" UserSourceName="FillByBudget">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        MediaID, Title, GenreName, DirectorName, LanguageName, PublishYear, Budget, Genre, Director, Language
@@ -43,7 +44,7 @@ WHERE        (Budget = @BUDGET)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="DB_9AB8B7_6101ConnectionString (Settings)" DbObjectName="DB_9AB8B7_6101.dbo.ViewMedia" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillByDirectorName" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByDirectorName" GeneratorSourceName="FillByDirectorName" GetMethodModifier="Public" GetMethodName="GetDataByDirectorName" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByDirectorName" UserSourceName="FillByDirectorName">
+              <DbSource ConnectionRef="DB_9AB8B7_6204ConnectionString (Settings)" DbObjectName="DB_9AB8B7_6204.dbo.ViewMedia" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillByDirectorName" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByDirectorName" GeneratorSourceName="FillByDirectorName" GetMethodModifier="Public" GetMethodName="GetDataByDirectorName" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByDirectorName" UserSourceName="FillByDirectorName">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        MediaID, Title, GenreName, DirectorName, LanguageName, PublishYear, Budget, Genre, Director, Language
@@ -55,7 +56,7 @@ WHERE        (DirectorName LIKE '%' + @DIRECTOR_NAME + '%')</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="DB_9AB8B7_6101ConnectionString (Settings)" DbObjectName="DB_9AB8B7_6101.dbo.ViewMedia" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillByGenre" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByGenre" GeneratorSourceName="FillByGenre" GetMethodModifier="Public" GetMethodName="GetDataByGenre" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByGenre" UserSourceName="FillByGenre">
+              <DbSource ConnectionRef="DB_9AB8B7_6204ConnectionString (Settings)" DbObjectName="DB_9AB8B7_6204.dbo.ViewMedia" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillByGenre" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByGenre" GeneratorSourceName="FillByGenre" GetMethodModifier="Public" GetMethodName="GetDataByGenre" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByGenre" UserSourceName="FillByGenre">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        MediaID, Title, GenreName, DirectorName, LanguageName, PublishYear, Budget, Genre, Director, Language
@@ -67,7 +68,7 @@ WHERE        (GenreName LIKE '%' + @GENRE_NAME + '%')</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="DB_9AB8B7_6101ConnectionString (Settings)" DbObjectName="DB_9AB8B7_6101.dbo.ViewMedia" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillByLanguage" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByLanguage" GeneratorSourceName="FillByLanguage" GetMethodModifier="Public" GetMethodName="GetDataByLanguage" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByLanguage" UserSourceName="FillByLanguage">
+              <DbSource ConnectionRef="DB_9AB8B7_6204ConnectionString (Settings)" DbObjectName="DB_9AB8B7_6204.dbo.ViewMedia" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillByLanguage" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByLanguage" GeneratorSourceName="FillByLanguage" GetMethodModifier="Public" GetMethodName="GetDataByLanguage" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByLanguage" UserSourceName="FillByLanguage">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        MediaID, Title, GenreName, DirectorName, LanguageName, PublishYear, Budget, Genre, Director, Language
@@ -79,7 +80,7 @@ WHERE        (LanguageName = @LANGUAGE_NAME)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="DB_9AB8B7_6101ConnectionString (Settings)" DbObjectName="DB_9AB8B7_6101.dbo.ViewMedia" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillByPublishYear" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByPublishYear" GeneratorSourceName="FillByPublishYear" GetMethodModifier="Public" GetMethodName="GetDataByPublishYear" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByPublishYear" UserSourceName="FillByPublishYear">
+              <DbSource ConnectionRef="DB_9AB8B7_6204ConnectionString (Settings)" DbObjectName="DB_9AB8B7_6204.dbo.ViewMedia" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillByPublishYear" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByPublishYear" GeneratorSourceName="FillByPublishYear" GetMethodModifier="Public" GetMethodName="GetDataByPublishYear" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByPublishYear" UserSourceName="FillByPublishYear">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        MediaID, Title, GenreName, DirectorName, LanguageName, PublishYear, Budget, Genre, Director, Language
@@ -91,7 +92,7 @@ WHERE        (PublishYear = @PUBLISH_YEAR)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="DB_9AB8B7_6101ConnectionString (Settings)" DbObjectName="DB_9AB8B7_6101.dbo.ViewMedia" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillByTitle" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByTitle" GeneratorSourceName="FillByTitle" GetMethodModifier="Public" GetMethodName="GetDataByTitle" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByTitle" UserSourceName="FillByTitle">
+              <DbSource ConnectionRef="DB_9AB8B7_6204ConnectionString (Settings)" DbObjectName="DB_9AB8B7_6204.dbo.ViewMedia" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillByTitle" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByTitle" GeneratorSourceName="FillByTitle" GetMethodModifier="Public" GetMethodName="GetDataByTitle" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByTitle" UserSourceName="FillByTitle">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        MediaID, Title, GenreName, DirectorName, LanguageName, PublishYear, Budget, Genre, Director, Language
@@ -107,7 +108,7 @@ WHERE        (Title LIKE '%' + @TITLE + '%')</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TabDirectorTableAdapter" GeneratorDataComponentClassName="TabDirectorTableAdapter" Name="TabDirector" UserDataComponentName="TabDirectorTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="DB_9AB8B7_6101ConnectionString (Settings)" DbObjectName="DB_9AB8B7_6101.dbo.TabDirector" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="DB_9AB8B7_6204ConnectionString (Settings)" DbObjectName="DB_9AB8B7_6204.dbo.TabDirector" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[TabDirector] WHERE (([DID] = @Original_DID) AND ([DirectorName] = @Original_DirectorName))</CommandText>
@@ -151,7 +152,7 @@ SELECT DID, DirectorName FROM TabDirector WHERE (DID = @DID)</CommandText>
               <Mapping SourceColumn="DirectorName" DataSetColumn="DirectorName" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="DB_9AB8B7_6101ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="AddDirector" Modifier="Public" Name="AddDirector" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="AddDirector">
+              <DbSource ConnectionRef="DB_9AB8B7_6204ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="AddDirector" Modifier="Public" Name="AddDirector" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="AddDirector">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>INSERT INTO TabDirector
@@ -168,7 +169,7 @@ SELECT DID, DirectorName FROM TabDirector WHERE (DID = SCOPE_IDENTITY())</Comman
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TabGenreTableAdapter" GeneratorDataComponentClassName="TabGenreTableAdapter" Name="TabGenre" UserDataComponentName="TabGenreTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="DB_9AB8B7_6101ConnectionString (Settings)" DbObjectName="DB_9AB8B7_6101.dbo.TabGenre" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="DB_9AB8B7_6204ConnectionString (Settings)" DbObjectName="DB_9AB8B7_6204.dbo.TabGenre" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[TabGenre] WHERE (([GID] = @Original_GID) AND ([GenreName] = @Original_GenreName))</CommandText>
@@ -212,7 +213,7 @@ SELECT GID, GenreName FROM TabGenre WHERE (GID = @GID)</CommandText>
               <Mapping SourceColumn="GenreName" DataSetColumn="GenreName" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="DB_9AB8B7_6101ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="AddGenre" Modifier="Public" Name="AddGenre" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="AddGenre">
+              <DbSource ConnectionRef="DB_9AB8B7_6204ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="AddGenre" Modifier="Public" Name="AddGenre" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="AddGenre">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>INSERT INTO TabGenre
@@ -229,7 +230,7 @@ SELECT GID, GenreName FROM TabGenre WHERE (GID = SCOPE_IDENTITY())</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TabLanguageTableAdapter" GeneratorDataComponentClassName="TabLanguageTableAdapter" Name="TabLanguage" UserDataComponentName="TabLanguageTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="DB_9AB8B7_6101ConnectionString (Settings)" DbObjectName="DB_9AB8B7_6101.dbo.TabLanguage" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="DB_9AB8B7_6204ConnectionString (Settings)" DbObjectName="DB_9AB8B7_6204.dbo.TabLanguage" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[TabLanguage] WHERE (([LID] = @Original_LID) AND ([LanguageName] = @Original_LanguageName))</CommandText>
@@ -273,7 +274,7 @@ SELECT LID, LanguageName FROM TabLanguage WHERE (LID = @LID)</CommandText>
               <Mapping SourceColumn="LanguageName" DataSetColumn="LanguageName" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="DB_9AB8B7_6101ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="AddLanguage" Modifier="Public" Name="AddLanguage" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="AddLanguage">
+              <DbSource ConnectionRef="DB_9AB8B7_6204ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="AddLanguage" Modifier="Public" Name="AddLanguage" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="AddLanguage">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>INSERT INTO TabLanguage
@@ -290,7 +291,7 @@ SELECT LID, LanguageName FROM TabLanguage WHERE (LID = SCOPE_IDENTITY())</Comman
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TabMediaTableAdapter" GeneratorDataComponentClassName="TabMediaTableAdapter" Name="TabMedia" UserDataComponentName="TabMediaTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="DB_9AB8B7_6101ConnectionString (Settings)" DbObjectName="DB_9AB8B7_6101.dbo.TabMedia" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="DB_9AB8B7_6204ConnectionString (Settings)" DbObjectName="DB_9AB8B7_6204.dbo.TabMedia" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[TabMedia] WHERE (([MediaID] = @Original_MediaID) AND ([Title] = @Original_Title) AND ([Genre] = @Original_Genre) AND ([Director] = @Original_Director) AND ([Language] = @Original_Language) AND ([PublishYear] = @Original_PublishYear) AND ([Budget] = @Original_Budget))</CommandText>
@@ -359,7 +360,7 @@ SELECT MediaID, Title, Genre, Director, Language, PublishYear, Budget FROM TabMe
               <Mapping SourceColumn="Budget" DataSetColumn="Budget" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="DB_9AB8B7_6101ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="AddMedia" Modifier="Public" Name="AddMedia" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="AddMedia">
+              <DbSource ConnectionRef="DB_9AB8B7_6204ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="AddMedia" Modifier="Public" Name="AddMedia" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="AddMedia">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>INSERT INTO TabMedia
@@ -377,7 +378,7 @@ SELECT MediaID, Title, Genre, Director, Language, PublishYear, Budget FROM TabMe
                   </DbCommand>
                 </InsertCommand>
               </DbSource>
-              <DbSource ConnectionRef="DB_9AB8B7_6101ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteMedia" Modifier="Public" Name="DeleteMedia" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="DeleteMedia">
+              <DbSource ConnectionRef="DB_9AB8B7_6204ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteMedia" Modifier="Public" Name="DeleteMedia" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="DeleteMedia">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>DELETE FROM TabMedia
@@ -388,7 +389,7 @@ WHERE        (MediaID = @MediaID)</CommandText>
                   </DbCommand>
                 </DeleteCommand>
               </DbSource>
-              <DbSource ConnectionRef="DB_9AB8B7_6101ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateMedia" Modifier="Public" Name="UpdateMedia" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="UpdateMedia">
+              <DbSource ConnectionRef="DB_9AB8B7_6204ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateMedia" Modifier="Public" Name="UpdateMedia" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="UpdateMedia">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE       TabMedia
@@ -417,7 +418,7 @@ SELECT MediaID, Title, Genre, Director, Language, PublishYear, Budget FROM TabMe
   <xs:element name="MediaDS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="MediaDS" msprop:Generator_UserDSName="MediaDS">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="ViewMedia" msprop:Generator_TableClassName="ViewMediaDataTable" msprop:Generator_TableVarName="tableViewMedia" msprop:Generator_RowChangedName="ViewMediaRowChanged" msprop:Generator_TablePropName="ViewMedia" msprop:Generator_RowDeletingName="ViewMediaRowDeleting" msprop:Generator_RowChangingName="ViewMediaRowChanging" msprop:Generator_RowEvHandlerName="ViewMediaRowChangeEventHandler" msprop:Generator_RowDeletedName="ViewMediaRowDeleted" msprop:Generator_RowClassName="ViewMediaRow" msprop:Generator_UserTableName="ViewMedia" msprop:Generator_RowEvArgName="ViewMediaRowChangeEvent">
+        <xs:element name="ViewMedia" msprop:Generator_TableClassName="ViewMediaDataTable" msprop:Generator_TableVarName="tableViewMedia" msprop:Generator_TablePropName="ViewMedia" msprop:Generator_RowDeletingName="ViewMediaRowDeleting" msprop:Generator_RowChangingName="ViewMediaRowChanging" msprop:Generator_RowEvHandlerName="ViewMediaRowChangeEventHandler" msprop:Generator_RowDeletedName="ViewMediaRowDeleted" msprop:Generator_UserTableName="ViewMedia" msprop:Generator_RowChangedName="ViewMediaRowChanged" msprop:Generator_RowEvArgName="ViewMediaRowChangeEvent" msprop:Generator_RowClassName="ViewMediaRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="MediaID" msprop:Generator_ColumnVarNameInTable="columnMediaID" msprop:Generator_ColumnPropNameInRow="MediaID" msprop:Generator_ColumnPropNameInTable="MediaIDColumn" msprop:Generator_UserColumnName="MediaID" type="xs:int" />
@@ -457,7 +458,7 @@ SELECT MediaID, Title, Genre, Director, Language, PublishYear, Budget FROM TabMe
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="TabDirector" msprop:Generator_TableClassName="TabDirectorDataTable" msprop:Generator_TableVarName="tableTabDirector" msprop:Generator_RowChangedName="TabDirectorRowChanged" msprop:Generator_TablePropName="TabDirector" msprop:Generator_RowDeletingName="TabDirectorRowDeleting" msprop:Generator_RowChangingName="TabDirectorRowChanging" msprop:Generator_RowEvHandlerName="TabDirectorRowChangeEventHandler" msprop:Generator_RowDeletedName="TabDirectorRowDeleted" msprop:Generator_RowClassName="TabDirectorRow" msprop:Generator_UserTableName="TabDirector" msprop:Generator_RowEvArgName="TabDirectorRowChangeEvent">
+        <xs:element name="TabDirector" msprop:Generator_TableClassName="TabDirectorDataTable" msprop:Generator_TableVarName="tableTabDirector" msprop:Generator_TablePropName="TabDirector" msprop:Generator_RowDeletingName="TabDirectorRowDeleting" msprop:Generator_RowChangingName="TabDirectorRowChanging" msprop:Generator_RowEvHandlerName="TabDirectorRowChangeEventHandler" msprop:Generator_RowDeletedName="TabDirectorRowDeleted" msprop:Generator_UserTableName="TabDirector" msprop:Generator_RowChangedName="TabDirectorRowChanged" msprop:Generator_RowEvArgName="TabDirectorRowChangeEvent" msprop:Generator_RowClassName="TabDirectorRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="DID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnDID" msprop:Generator_ColumnPropNameInRow="DID" msprop:Generator_ColumnPropNameInTable="DIDColumn" msprop:Generator_UserColumnName="DID" type="xs:int" />
@@ -471,7 +472,7 @@ SELECT MediaID, Title, Genre, Director, Language, PublishYear, Budget FROM TabMe
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="TabGenre" msprop:Generator_TableClassName="TabGenreDataTable" msprop:Generator_TableVarName="tableTabGenre" msprop:Generator_RowChangedName="TabGenreRowChanged" msprop:Generator_TablePropName="TabGenre" msprop:Generator_RowDeletingName="TabGenreRowDeleting" msprop:Generator_RowChangingName="TabGenreRowChanging" msprop:Generator_RowEvHandlerName="TabGenreRowChangeEventHandler" msprop:Generator_RowDeletedName="TabGenreRowDeleted" msprop:Generator_RowClassName="TabGenreRow" msprop:Generator_UserTableName="TabGenre" msprop:Generator_RowEvArgName="TabGenreRowChangeEvent">
+        <xs:element name="TabGenre" msprop:Generator_TableClassName="TabGenreDataTable" msprop:Generator_TableVarName="tableTabGenre" msprop:Generator_TablePropName="TabGenre" msprop:Generator_RowDeletingName="TabGenreRowDeleting" msprop:Generator_RowChangingName="TabGenreRowChanging" msprop:Generator_RowEvHandlerName="TabGenreRowChangeEventHandler" msprop:Generator_RowDeletedName="TabGenreRowDeleted" msprop:Generator_UserTableName="TabGenre" msprop:Generator_RowChangedName="TabGenreRowChanged" msprop:Generator_RowEvArgName="TabGenreRowChangeEvent" msprop:Generator_RowClassName="TabGenreRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="GID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnGID" msprop:Generator_ColumnPropNameInRow="GID" msprop:Generator_ColumnPropNameInTable="GIDColumn" msprop:Generator_UserColumnName="GID" type="xs:int" />
@@ -485,7 +486,7 @@ SELECT MediaID, Title, Genre, Director, Language, PublishYear, Budget FROM TabMe
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="TabLanguage" msprop:Generator_TableClassName="TabLanguageDataTable" msprop:Generator_TableVarName="tableTabLanguage" msprop:Generator_RowChangedName="TabLanguageRowChanged" msprop:Generator_TablePropName="TabLanguage" msprop:Generator_RowDeletingName="TabLanguageRowDeleting" msprop:Generator_RowChangingName="TabLanguageRowChanging" msprop:Generator_RowEvHandlerName="TabLanguageRowChangeEventHandler" msprop:Generator_RowDeletedName="TabLanguageRowDeleted" msprop:Generator_RowClassName="TabLanguageRow" msprop:Generator_UserTableName="TabLanguage" msprop:Generator_RowEvArgName="TabLanguageRowChangeEvent">
+        <xs:element name="TabLanguage" msprop:Generator_TableClassName="TabLanguageDataTable" msprop:Generator_TableVarName="tableTabLanguage" msprop:Generator_TablePropName="TabLanguage" msprop:Generator_RowDeletingName="TabLanguageRowDeleting" msprop:Generator_RowChangingName="TabLanguageRowChanging" msprop:Generator_RowEvHandlerName="TabLanguageRowChangeEventHandler" msprop:Generator_RowDeletedName="TabLanguageRowDeleted" msprop:Generator_UserTableName="TabLanguage" msprop:Generator_RowChangedName="TabLanguageRowChanged" msprop:Generator_RowEvArgName="TabLanguageRowChangeEvent" msprop:Generator_RowClassName="TabLanguageRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="LID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnLID" msprop:Generator_ColumnPropNameInRow="LID" msprop:Generator_ColumnPropNameInTable="LIDColumn" msprop:Generator_UserColumnName="LID" type="xs:int" />
@@ -499,7 +500,7 @@ SELECT MediaID, Title, Genre, Director, Language, PublishYear, Budget FROM TabMe
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="TabMedia" msprop:Generator_TableClassName="TabMediaDataTable" msprop:Generator_TableVarName="tableTabMedia" msprop:Generator_RowChangedName="TabMediaRowChanged" msprop:Generator_TablePropName="TabMedia" msprop:Generator_RowDeletingName="TabMediaRowDeleting" msprop:Generator_RowChangingName="TabMediaRowChanging" msprop:Generator_RowEvHandlerName="TabMediaRowChangeEventHandler" msprop:Generator_RowDeletedName="TabMediaRowDeleted" msprop:Generator_RowClassName="TabMediaRow" msprop:Generator_UserTableName="TabMedia" msprop:Generator_RowEvArgName="TabMediaRowChangeEvent">
+        <xs:element name="TabMedia" msprop:Generator_TableClassName="TabMediaDataTable" msprop:Generator_TableVarName="tableTabMedia" msprop:Generator_TablePropName="TabMedia" msprop:Generator_RowDeletingName="TabMediaRowDeleting" msprop:Generator_RowChangingName="TabMediaRowChanging" msprop:Generator_RowEvHandlerName="TabMediaRowChangeEventHandler" msprop:Generator_RowDeletedName="TabMediaRowDeleted" msprop:Generator_UserTableName="TabMedia" msprop:Generator_RowChangedName="TabMediaRowChanged" msprop:Generator_RowEvArgName="TabMediaRowChangeEvent" msprop:Generator_RowClassName="TabMediaRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="MediaID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnMediaID" msprop:Generator_ColumnPropNameInRow="MediaID" msprop:Generator_ColumnPropNameInTable="MediaIDColumn" msprop:Generator_UserColumnName="MediaID" type="xs:int" />
@@ -543,9 +544,9 @@ SELECT MediaID, Title, Genre, Director, Language, PublishYear, Budget FROM TabMe
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="fk_TabMedia_TabDirector" msdata:parent="TabDirector" msdata:child="TabMedia" msdata:parentkey="DID" msdata:childkey="Director" msprop:Generator_UserChildTable="TabMedia" msprop:Generator_ChildPropName="GetTabMediaRows" msprop:Generator_UserRelationName="fk_TabMedia_TabDirector" msprop:Generator_RelationVarName="relationfk_TabMedia_TabDirector" msprop:Generator_UserParentTable="TabDirector" msprop:Generator_ParentPropName="TabDirectorRow" />
-      <msdata:Relationship name="fk_TabMedia_TabGenre" msdata:parent="TabGenre" msdata:child="TabMedia" msdata:parentkey="GID" msdata:childkey="Genre" msprop:Generator_UserChildTable="TabMedia" msprop:Generator_ChildPropName="GetTabMediaRows" msprop:Generator_UserRelationName="fk_TabMedia_TabGenre" msprop:Generator_RelationVarName="relationfk_TabMedia_TabGenre" msprop:Generator_UserParentTable="TabGenre" msprop:Generator_ParentPropName="TabGenreRow" />
-      <msdata:Relationship name="fk_TabMedia_TabLanguage" msdata:parent="TabLanguage" msdata:child="TabMedia" msdata:parentkey="LID" msdata:childkey="Language" msprop:Generator_UserChildTable="TabMedia" msprop:Generator_ChildPropName="GetTabMediaRows" msprop:Generator_UserRelationName="fk_TabMedia_TabLanguage" msprop:Generator_RelationVarName="relationfk_TabMedia_TabLanguage" msprop:Generator_UserParentTable="TabLanguage" msprop:Generator_ParentPropName="TabLanguageRow" />
+      <msdata:Relationship name="fk_TabMedia_TabDirector" msdata:parent="TabDirector" msdata:child="TabMedia" msdata:parentkey="DID" msdata:childkey="Director" msprop:Generator_UserChildTable="TabMedia" msprop:Generator_ChildPropName="GetTabMediaRows" msprop:Generator_UserRelationName="fk_TabMedia_TabDirector" msprop:Generator_ParentPropName="TabDirectorRow" msprop:Generator_RelationVarName="relationfk_TabMedia_TabDirector" msprop:Generator_UserParentTable="TabDirector" />
+      <msdata:Relationship name="fk_TabMedia_TabGenre" msdata:parent="TabGenre" msdata:child="TabMedia" msdata:parentkey="GID" msdata:childkey="Genre" msprop:Generator_UserChildTable="TabMedia" msprop:Generator_ChildPropName="GetTabMediaRows" msprop:Generator_UserRelationName="fk_TabMedia_TabGenre" msprop:Generator_ParentPropName="TabGenreRow" msprop:Generator_RelationVarName="relationfk_TabMedia_TabGenre" msprop:Generator_UserParentTable="TabGenre" />
+      <msdata:Relationship name="fk_TabMedia_TabLanguage" msdata:parent="TabLanguage" msdata:child="TabMedia" msdata:parentkey="LID" msdata:childkey="Language" msprop:Generator_UserChildTable="TabMedia" msprop:Generator_ChildPropName="GetTabMediaRows" msprop:Generator_UserRelationName="fk_TabMedia_TabLanguage" msprop:Generator_ParentPropName="TabLanguageRow" msprop:Generator_RelationVarName="relationfk_TabMedia_TabLanguage" msprop:Generator_UserParentTable="TabLanguage" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>
