@@ -156,7 +156,7 @@ namespace AITMediaLibrary
 
         private void SearchErrorMessage()
         {
-            errorDBLoadingLabel.Text = @"Sorry, the search doesn't match any value from database";
+            MessageBox.Show(@"Sorry, the search doesn't match any value from database");
         }
 
         private void CleanTextBoxes(int num=0)

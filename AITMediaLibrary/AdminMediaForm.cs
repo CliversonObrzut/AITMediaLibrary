@@ -221,7 +221,7 @@ namespace AITMediaLibrary
                     addNewMediaLabel.Text = @"Add New Media:";
                     CleanTextBoxes();
                     RefresMediaList();
-                    MessageBox.Show(@"New media successfully created!");
+                    MessageBox.Show(@"Selected media successfully updated!");
                 }
                 catch (Exception)
                 {

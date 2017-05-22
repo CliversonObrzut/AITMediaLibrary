@@ -2769,7 +2769,7 @@ namespace Data_Access.MediaDSTableAdapters {
             this._commandCollection[4].Connection = this.Connection;
             this._commandCollection[4].CommandText = "SELECT        MediaID, Title, GenreName, DirectorName, LanguageName, PublishYear," +
                 " Budget, Genre, Director, Language\r\nFROM            ViewMedia\r\nWHERE        (Lan" +
-                "guageName = @LANGUAGE_NAME)";
+                "guageName LIKE \'%\' + @LANGUAGE_NAME + \'%\')";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LANGUAGE_NAME", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "LanguageName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
