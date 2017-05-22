@@ -60,6 +60,10 @@
             this.filtersGridView = new System.Windows.Forms.DataGridView();
             this.selectedMediaGridView = new System.Windows.Forms.DataGridView();
             this.userGridView = new System.Windows.Forms.DataGridView();
+            this.reserveButton = new System.Windows.Forms.Button();
+            this.borrowButton = new System.Windows.Forms.Button();
+            this.returnMedia = new System.Windows.Forms.Button();
+            this.borrowedMediaComboBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.mediaGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.filtersGridView)).BeginInit();
@@ -360,12 +364,51 @@
             this.userGridView.Size = new System.Drawing.Size(193, 28);
             this.userGridView.TabIndex = 31;
             // 
+            // reserveButton
+            // 
+            this.reserveButton.Location = new System.Drawing.Point(569, 323);
+            this.reserveButton.Name = "reserveButton";
+            this.reserveButton.Size = new System.Drawing.Size(126, 23);
+            this.reserveButton.TabIndex = 32;
+            this.reserveButton.Text = "Reserve Media";
+            this.reserveButton.UseVisualStyleBackColor = true;
+            // 
+            // borrowButton
+            // 
+            this.borrowButton.Location = new System.Drawing.Point(437, 323);
+            this.borrowButton.Name = "borrowButton";
+            this.borrowButton.Size = new System.Drawing.Size(126, 23);
+            this.borrowButton.TabIndex = 33;
+            this.borrowButton.Text = "Borrow Media";
+            this.borrowButton.UseVisualStyleBackColor = true;
+            // 
+            // returnMedia
+            // 
+            this.returnMedia.Location = new System.Drawing.Point(701, 351);
+            this.returnMedia.Name = "returnMedia";
+            this.returnMedia.Size = new System.Drawing.Size(126, 23);
+            this.returnMedia.TabIndex = 34;
+            this.returnMedia.Text = "Return Media";
+            this.returnMedia.UseVisualStyleBackColor = true;
+            // 
+            // borrowedMediaComboBox
+            // 
+            this.borrowedMediaComboBox.FormattingEnabled = true;
+            this.borrowedMediaComboBox.Location = new System.Drawing.Point(437, 352);
+            this.borrowedMediaComboBox.Name = "borrowedMediaComboBox";
+            this.borrowedMediaComboBox.Size = new System.Drawing.Size(258, 21);
+            this.borrowedMediaComboBox.TabIndex = 35;
+            // 
             // MediaBrowser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(891, 522);
+            this.Controls.Add(this.borrowedMediaComboBox);
+            this.Controls.Add(this.returnMedia);
+            this.Controls.Add(this.borrowButton);
+            this.Controls.Add(this.reserveButton);
             this.Controls.Add(this.logoutButton);
             this.Controls.Add(this.logoPictureBox);
             this.Controls.Add(this.listMediaLabel);
@@ -444,5 +487,9 @@
         private System.Windows.Forms.DataGridView filtersGridView;
         private System.Windows.Forms.DataGridView selectedMediaGridView;
         private System.Windows.Forms.DataGridView userGridView;
+        private System.Windows.Forms.Button reserveButton;
+        private System.Windows.Forms.Button borrowButton;
+        private System.Windows.Forms.Button returnMedia;
+        private System.Windows.Forms.ComboBox borrowedMediaComboBox;
     }
 }
