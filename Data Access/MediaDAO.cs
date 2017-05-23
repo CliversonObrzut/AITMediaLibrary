@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using Data_Access.MediaDSTableAdapters;
 
 namespace Data_Access
 {
+    [SuppressMessage("ReSharper", "InconsistentNaming")]
     public class MediaDAO
     {
         private MediaDS _mediaDataSet;
@@ -11,6 +13,7 @@ namespace Data_Access
         private TabLanguageTableAdapter _languageTableAdapter;
         private TabGenreTableAdapter _genreTableAdapter;
         private TabDirectorTableAdapter _directorTableAdapter;
+        private TabReservedTableAdapter _reserveTableAdapter;
 
         public MediaDAO()
         {
@@ -20,6 +23,7 @@ namespace Data_Access
             _genreTableAdapter = new TabGenreTableAdapter();
             _directorTableAdapter = new TabDirectorTableAdapter();
             _mediaTableAdapter = new TabMediaTableAdapter();
+            _reserveTableAdapter = new TabReservedTableAdapter();
         }
 
         public MediaDS.ViewMediaDataTable ListMedia()
@@ -180,6 +184,29 @@ namespace Data_Access
         public int DeleteMedia(int mediaID)
         {
             return _mediaTableAdapter.DeleteMedia(mediaID);
+        }
+
+        public MediaDS.TabReservedDataTable GetReserveByMedia(int mediaID)
+        {
+            try
+            {
+                _reserveTableAdapter.FillByMediaID(_mediaDataSet.TabReserved, mediaID);
+                return _mediaDataSet.TabReserved;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public int AddReserve(int mediaID, int userID, string date)
+        {
+            return _reserveTableAdapter.AddReserve(userID, mediaID, date);
+        }
+
+        public int DeleteReserve(int RID)
+        {
+            return _reserveTableAdapter.DeleteReserve(RID);
         }
     }
 }

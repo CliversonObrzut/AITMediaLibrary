@@ -22,6 +22,7 @@ namespace AITMediaLibrary
             {
                 CurrentUser.UserName = users[0].UserName;
                 CurrentUser.UserLevel = users[0].UserLevel;
+                CurrentUser.UserID = users[0].UserID;
 
                 if (users[0].UserLevel == 3) //go to admin page/form
                 {

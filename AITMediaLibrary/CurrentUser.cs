@@ -4,5 +4,6 @@
     {
         public static string UserName;
         public static int UserLevel;
+        public static int UserID;
     }
 }

@@ -64,6 +64,7 @@
             this.borrowButton = new System.Windows.Forms.Button();
             this.returnMedia = new System.Windows.Forms.Button();
             this.borrowedMediaComboBox = new System.Windows.Forms.ComboBox();
+            this.unreserveButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.mediaGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.filtersGridView)).BeginInit();
@@ -92,6 +93,7 @@
             this.mediaGridView.Size = new System.Drawing.Size(775, 222);
             this.mediaGridView.TabIndex = 1;
             this.mediaGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.mediaGridView_CellClick);
+            this.mediaGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ArrowKeyUpDown_press);
             // 
             // publishYearLabel
             // 
@@ -372,6 +374,7 @@
             this.reserveButton.TabIndex = 32;
             this.reserveButton.Text = "Reserve Media";
             this.reserveButton.UseVisualStyleBackColor = true;
+            this.reserveButton.Click += new System.EventHandler(this.reserveButton_Click);
             // 
             // borrowButton
             // 
@@ -398,6 +401,16 @@
             this.borrowedMediaComboBox.Name = "borrowedMediaComboBox";
             this.borrowedMediaComboBox.Size = new System.Drawing.Size(258, 21);
             this.borrowedMediaComboBox.TabIndex = 35;
+            // 
+            // unreserveButton
+            // 
+            this.unreserveButton.Location = new System.Drawing.Point(569, 323);
+            this.unreserveButton.Name = "unreserveButton";
+            this.unreserveButton.Size = new System.Drawing.Size(126, 23);
+            this.unreserveButton.TabIndex = 36;
+            this.unreserveButton.Text = "UnReserve Media";
+            this.unreserveButton.UseVisualStyleBackColor = true;
+            this.unreserveButton.Click += new System.EventHandler(this.unreserveButton_Click);
             // 
             // MediaBrowser
             // 
@@ -440,6 +453,7 @@
             this.Controls.Add(this.filtersGridView);
             this.Controls.Add(this.selectedMediaGridView);
             this.Controls.Add(this.userGridView);
+            this.Controls.Add(this.unreserveButton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MediaBrowser";
             this.Text = "Media Browser";
@@ -491,5 +505,6 @@
         private System.Windows.Forms.Button borrowButton;
         private System.Windows.Forms.Button returnMedia;
         private System.Windows.Forms.ComboBox borrowedMediaComboBox;
+        private System.Windows.Forms.Button unreserveButton;
     }
 }

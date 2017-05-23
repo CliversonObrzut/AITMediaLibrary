@@ -143,6 +143,12 @@ namespace AITMediaLibrary
                 List<MediaModel> medias = (List<MediaModel>)mediaGridView.DataSource;
                 MediaModel media = medias[row];
 
+                ReserveModel reserve = _mediaLogic.GetReserveByMediaID(media.MediaId);
+                if (reserve != null && reserve.UID == CurrentUser.UserID)
+                    reserveButton.Visible = false;
+                else
+                    reserveButton.Visible = true;
+
                 selectedMediaLabel.Text = @"Selected Media: " + media.MediaName;
                 errorDBLoadingLabel.Text = "";
             }
@@ -190,6 +196,63 @@ namespace AITMediaLibrary
         private static void OpenLoginForm()
         {
             Application.Run(new Login());
+        }
+
+        private void reserveButton_Click(object sender, EventArgs e)
+        {
+            if (mediaGridView.CurrentRow != null)
+            {
+                int indexRow = mediaGridView.CurrentRow.Index;
+                List<MediaModel> medias = (List<MediaModel>)mediaGridView.DataSource;
+                MediaModel media = medias[indexRow];
+
+                if (_mediaLogic.IsReserved(media.MediaId))
+                    MessageBox.Show(@"This media is reserved by another user!");
+                else
+                {
+                    _mediaLogic.AddReserve(media.MediaId, CurrentUser.UserID);
+                    MessageBox.Show(@"Media reserved!");
+                    reserveButton.Visible = false;
+                } 
+            }
+            else
+                MessageBox.Show(@"None media is selected!");
+        }
+
+        private void unreserveButton_Click(object sender, EventArgs e)
+        {
+            if (mediaGridView.CurrentRow != null)
+            {
+                int indexRow = mediaGridView.CurrentRow.Index;
+                List<MediaModel> medias = (List<MediaModel>)mediaGridView.DataSource;
+                MediaModel media = medias[indexRow];
+
+                ReserveModel reserve = _mediaLogic.GetReserveByMediaID(media.MediaId);
+
+                _mediaLogic.DeleteReserve(reserve.RID);
+                MessageBox.Show(@"Media reserve canceled!");
+                reserveButton.Visible = true;
+            }
+            else
+                MessageBox.Show(@"None media is selected!");
+        }
+
+        private void ArrowKeyUpDown_press(object sender, KeyEventArgs e)
+        {
+            int rowIndex = mediaGridView.CurrentCell.RowIndex;
+            int colIndex = mediaGridView.CurrentCell.ColumnIndex;
+            if (e.KeyValue == 40 && (mediaGridView.Rows.Count-1) != rowIndex)
+            {
+                rowIndex++;
+                DataGridViewCellEventArgs ev = new DataGridViewCellEventArgs(colIndex, rowIndex);
+                mediaGridView_CellClick(sender, ev);
+            }
+            if (e.KeyValue == 38 && rowIndex != 0)
+            {
+                rowIndex--;
+                DataGridViewCellEventArgs ev = new DataGridViewCellEventArgs(colIndex, rowIndex);
+                mediaGridView_CellClick(sender, ev);
+            }
         }
     }
 }

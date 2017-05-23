@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Data_Access;
 
 namespace Business_Logic
@@ -142,6 +144,35 @@ namespace Business_Logic
         public int DeleteMedia(int mediaID)
         {
             return _mediaDao.DeleteMedia(mediaID);
+        }
+
+        public ReserveModel GetReserveByMediaID(int mediaID)
+        {
+            MediaDS.TabReservedDataTable reserveTable = _mediaDao.GetReserveByMedia(mediaID);
+            ReserveModel reserve = null;
+            if (reserveTable.Rows.Count != 0)
+                reserve = ReserveModel.Parse(reserveTable[0]);
+
+            return reserve;
+        }
+
+        public bool IsReserved(int mediaID)
+        {
+            ReserveModel reserve = GetReserveByMediaID(mediaID);
+
+            if (reserve == null)
+                return false;
+            return true;
+        }
+
+        public int AddReserve(int mediaID, int userID)
+        {
+            return _mediaDao.AddReserve(mediaID, userID, DateTime.Now.ToString("dd/MM/yyyy"));
+        }
+
+        public int DeleteReserve(int RID)
+        {
+            return _mediaDao.DeleteReserve(RID);
         }
 
         private static void GetListOfMediasFromDataTable(MediaDS.ViewMediaDataTable mediaTable, List<MediaModel> medias)
