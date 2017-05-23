@@ -36,6 +36,8 @@ namespace Data_Access {
         
         private TabReservedDataTable tableTabReserved;
         
+        private TabBorrowDataTable tableTabBorrow;
+        
         private global::System.Data.DataRelation relationfk_TabMedia_TabDirector;
         
         private global::System.Data.DataRelation relationfk_TabMedia_TabGenre;
@@ -43,6 +45,8 @@ namespace Data_Access {
         private global::System.Data.DataRelation relationfk_TabMedia_TabLanguage;
         
         private global::System.Data.DataRelation relationfk_TabReserved_TabMedia;
+        
+        private global::System.Data.DataRelation relationfk_TabBorrow_TabMedia;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -89,6 +93,9 @@ namespace Data_Access {
                 }
                 if ((ds.Tables["TabReserved"] != null)) {
                     base.Tables.Add(new TabReservedDataTable(ds.Tables["TabReserved"]));
+                }
+                if ((ds.Tables["TabBorrow"] != null)) {
+                    base.Tables.Add(new TabBorrowDataTable(ds.Tables["TabBorrow"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -165,6 +172,16 @@ namespace Data_Access {
         public TabReservedDataTable TabReserved {
             get {
                 return this.tableTabReserved;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public TabBorrowDataTable TabBorrow {
+            get {
+                return this.tableTabBorrow;
             }
         }
         
@@ -253,6 +270,9 @@ namespace Data_Access {
                 if ((ds.Tables["TabReserved"] != null)) {
                     base.Tables.Add(new TabReservedDataTable(ds.Tables["TabReserved"]));
                 }
+                if ((ds.Tables["TabBorrow"] != null)) {
+                    base.Tables.Add(new TabBorrowDataTable(ds.Tables["TabBorrow"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -322,10 +342,17 @@ namespace Data_Access {
                     this.tableTabReserved.InitVars();
                 }
             }
+            this.tableTabBorrow = ((TabBorrowDataTable)(base.Tables["TabBorrow"]));
+            if ((initTable == true)) {
+                if ((this.tableTabBorrow != null)) {
+                    this.tableTabBorrow.InitVars();
+                }
+            }
             this.relationfk_TabMedia_TabDirector = this.Relations["fk_TabMedia_TabDirector"];
             this.relationfk_TabMedia_TabGenre = this.Relations["fk_TabMedia_TabGenre"];
             this.relationfk_TabMedia_TabLanguage = this.Relations["fk_TabMedia_TabLanguage"];
             this.relationfk_TabReserved_TabMedia = this.Relations["fk_TabReserved_TabMedia"];
+            this.relationfk_TabBorrow_TabMedia = this.Relations["fk_TabBorrow_TabMedia"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -348,6 +375,8 @@ namespace Data_Access {
             base.Tables.Add(this.tableTabMedia);
             this.tableTabReserved = new TabReservedDataTable();
             base.Tables.Add(this.tableTabReserved);
+            this.tableTabBorrow = new TabBorrowDataTable();
+            base.Tables.Add(this.tableTabBorrow);
             this.relationfk_TabMedia_TabDirector = new global::System.Data.DataRelation("fk_TabMedia_TabDirector", new global::System.Data.DataColumn[] {
                         this.tableTabDirector.DIDColumn}, new global::System.Data.DataColumn[] {
                         this.tableTabMedia.DirectorColumn}, false);
@@ -364,6 +393,10 @@ namespace Data_Access {
                         this.tableTabMedia.MediaIDColumn}, new global::System.Data.DataColumn[] {
                         this.tableTabReserved.MediaIDColumn}, false);
             this.Relations.Add(this.relationfk_TabReserved_TabMedia);
+            this.relationfk_TabBorrow_TabMedia = new global::System.Data.DataRelation("fk_TabBorrow_TabMedia", new global::System.Data.DataColumn[] {
+                        this.tableTabMedia.MediaIDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableTabBorrow.MediaIDColumn}, false);
+            this.Relations.Add(this.relationfk_TabBorrow_TabMedia);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -399,6 +432,12 @@ namespace Data_Access {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializeTabReserved() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeTabBorrow() {
             return false;
         }
         
@@ -474,6 +513,9 @@ namespace Data_Access {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void TabReservedRowChangeEventHandler(object sender, TabReservedRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void TabBorrowRowChangeEventHandler(object sender, TabBorrowRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -2379,6 +2421,361 @@ namespace Data_Access {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class TabBorrowDataTable : global::System.Data.TypedTableBase<TabBorrowRow> {
+            
+            private global::System.Data.DataColumn columnBID;
+            
+            private global::System.Data.DataColumn columnUID;
+            
+            private global::System.Data.DataColumn columnMediaID;
+            
+            private global::System.Data.DataColumn columnBorrowDate;
+            
+            private global::System.Data.DataColumn columnReturnDate;
+            
+            private global::System.Data.DataColumn columnActualReturnDate;
+            
+            private global::System.Data.DataColumn columnLateFee;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public TabBorrowDataTable() {
+                this.TableName = "TabBorrow";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal TabBorrowDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected TabBorrowDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn BIDColumn {
+                get {
+                    return this.columnBID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn UIDColumn {
+                get {
+                    return this.columnUID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn MediaIDColumn {
+                get {
+                    return this.columnMediaID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn BorrowDateColumn {
+                get {
+                    return this.columnBorrowDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ReturnDateColumn {
+                get {
+                    return this.columnReturnDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ActualReturnDateColumn {
+                get {
+                    return this.columnActualReturnDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn LateFeeColumn {
+                get {
+                    return this.columnLateFee;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public TabBorrowRow this[int index] {
+                get {
+                    return ((TabBorrowRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event TabBorrowRowChangeEventHandler TabBorrowRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event TabBorrowRowChangeEventHandler TabBorrowRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event TabBorrowRowChangeEventHandler TabBorrowRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event TabBorrowRowChangeEventHandler TabBorrowRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddTabBorrowRow(TabBorrowRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public TabBorrowRow AddTabBorrowRow(int UID, TabMediaRow parentTabMediaRowByfk_TabBorrow_TabMedia, System.DateTime BorrowDate, System.DateTime ReturnDate, System.DateTime ActualReturnDate, decimal LateFee) {
+                TabBorrowRow rowTabBorrowRow = ((TabBorrowRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        UID,
+                        null,
+                        BorrowDate,
+                        ReturnDate,
+                        ActualReturnDate,
+                        LateFee};
+                if ((parentTabMediaRowByfk_TabBorrow_TabMedia != null)) {
+                    columnValuesArray[2] = parentTabMediaRowByfk_TabBorrow_TabMedia[0];
+                }
+                rowTabBorrowRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowTabBorrowRow);
+                return rowTabBorrowRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public TabBorrowRow FindByBID(int BID) {
+                return ((TabBorrowRow)(this.Rows.Find(new object[] {
+                            BID})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                TabBorrowDataTable cln = ((TabBorrowDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new TabBorrowDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnBID = base.Columns["BID"];
+                this.columnUID = base.Columns["UID"];
+                this.columnMediaID = base.Columns["MediaID"];
+                this.columnBorrowDate = base.Columns["BorrowDate"];
+                this.columnReturnDate = base.Columns["ReturnDate"];
+                this.columnActualReturnDate = base.Columns["ActualReturnDate"];
+                this.columnLateFee = base.Columns["LateFee"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnBID = new global::System.Data.DataColumn("BID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBID);
+                this.columnUID = new global::System.Data.DataColumn("UID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUID);
+                this.columnMediaID = new global::System.Data.DataColumn("MediaID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMediaID);
+                this.columnBorrowDate = new global::System.Data.DataColumn("BorrowDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBorrowDate);
+                this.columnReturnDate = new global::System.Data.DataColumn("ReturnDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnReturnDate);
+                this.columnActualReturnDate = new global::System.Data.DataColumn("ActualReturnDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnActualReturnDate);
+                this.columnLateFee = new global::System.Data.DataColumn("LateFee", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLateFee);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnBID}, true));
+                this.columnBID.AutoIncrement = true;
+                this.columnBID.AutoIncrementSeed = -1;
+                this.columnBID.AutoIncrementStep = -1;
+                this.columnBID.AllowDBNull = false;
+                this.columnBID.ReadOnly = true;
+                this.columnBID.Unique = true;
+                this.columnUID.AllowDBNull = false;
+                this.columnMediaID.AllowDBNull = false;
+                this.columnBorrowDate.AllowDBNull = false;
+                this.columnReturnDate.AllowDBNull = false;
+                this.columnActualReturnDate.AllowDBNull = false;
+                this.columnLateFee.AllowDBNull = false;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public TabBorrowRow NewTabBorrowRow() {
+                return ((TabBorrowRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new TabBorrowRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(TabBorrowRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.TabBorrowRowChanged != null)) {
+                    this.TabBorrowRowChanged(this, new TabBorrowRowChangeEvent(((TabBorrowRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.TabBorrowRowChanging != null)) {
+                    this.TabBorrowRowChanging(this, new TabBorrowRowChangeEvent(((TabBorrowRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.TabBorrowRowDeleted != null)) {
+                    this.TabBorrowRowDeleted(this, new TabBorrowRowChangeEvent(((TabBorrowRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.TabBorrowRowDeleting != null)) {
+                    this.TabBorrowRowDeleting(this, new TabBorrowRowChangeEvent(((TabBorrowRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveTabBorrowRow(TabBorrowRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                MediaDS ds = new MediaDS();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "TabBorrowDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class ViewMediaRow : global::System.Data.DataRow {
@@ -2781,6 +3178,17 @@ namespace Data_Access {
                     return ((TabReservedRow[])(base.GetChildRows(this.Table.ChildRelations["fk_TabReserved_TabMedia"])));
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public TabBorrowRow[] GetTabBorrowRows() {
+                if ((this.Table.ChildRelations["fk_TabBorrow_TabMedia"] == null)) {
+                    return new TabBorrowRow[0];
+                }
+                else {
+                    return ((TabBorrowRow[])(base.GetChildRows(this.Table.ChildRelations["fk_TabBorrow_TabMedia"])));
+                }
+            }
         }
         
         /// <summary>
@@ -2849,6 +3257,109 @@ namespace Data_Access {
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["fk_TabReserved_TabMedia"]);
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class TabBorrowRow : global::System.Data.DataRow {
+            
+            private TabBorrowDataTable tableTabBorrow;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal TabBorrowRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableTabBorrow = ((TabBorrowDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int BID {
+                get {
+                    return ((int)(this[this.tableTabBorrow.BIDColumn]));
+                }
+                set {
+                    this[this.tableTabBorrow.BIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int UID {
+                get {
+                    return ((int)(this[this.tableTabBorrow.UIDColumn]));
+                }
+                set {
+                    this[this.tableTabBorrow.UIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int MediaID {
+                get {
+                    return ((int)(this[this.tableTabBorrow.MediaIDColumn]));
+                }
+                set {
+                    this[this.tableTabBorrow.MediaIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime BorrowDate {
+                get {
+                    return ((global::System.DateTime)(this[this.tableTabBorrow.BorrowDateColumn]));
+                }
+                set {
+                    this[this.tableTabBorrow.BorrowDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime ReturnDate {
+                get {
+                    return ((global::System.DateTime)(this[this.tableTabBorrow.ReturnDateColumn]));
+                }
+                set {
+                    this[this.tableTabBorrow.ReturnDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime ActualReturnDate {
+                get {
+                    return ((global::System.DateTime)(this[this.tableTabBorrow.ActualReturnDateColumn]));
+                }
+                set {
+                    this[this.tableTabBorrow.ActualReturnDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal LateFee {
+                get {
+                    return ((decimal)(this[this.tableTabBorrow.LateFeeColumn]));
+                }
+                set {
+                    this[this.tableTabBorrow.LateFeeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public TabMediaRow TabMediaRow {
+                get {
+                    return ((TabMediaRow)(this.GetParentRow(this.Table.ParentRelations["fk_TabBorrow_TabMedia"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["fk_TabBorrow_TabMedia"]);
                 }
             }
         }
@@ -3043,6 +3554,40 @@ namespace Data_Access {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public TabReservedRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class TabBorrowRowChangeEvent : global::System.EventArgs {
+            
+            private TabBorrowRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public TabBorrowRowChangeEvent(TabBorrowRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public TabBorrowRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -5443,6 +5988,518 @@ SELECT RID, UID, MediaID, ReservedDate FROM TabReserved WHERE (RID = @RID)";
     }
     
     /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class TabBorrowTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public TabBorrowTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "TabBorrow";
+            tableMapping.ColumnMappings.Add("BID", "BID");
+            tableMapping.ColumnMappings.Add("UID", "UID");
+            tableMapping.ColumnMappings.Add("MediaID", "MediaID");
+            tableMapping.ColumnMappings.Add("BorrowDate", "BorrowDate");
+            tableMapping.ColumnMappings.Add("ReturnDate", "ReturnDate");
+            tableMapping.ColumnMappings.Add("ActualReturnDate", "ActualReturnDate");
+            tableMapping.ColumnMappings.Add("LateFee", "LateFee");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [TabBorrow] WHERE (([BID] = @Original_BID) AND ([UID] = @Original_UID) AND ([MediaID] = @Original_MediaID) AND ([BorrowDate] = @Original_BorrowDate) AND ([ReturnDate] = @Original_ReturnDate) AND ([ActualReturnDate] = @Original_ActualReturnDate) AND ([LateFee] = @Original_LateFee))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_UID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MediaID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MediaID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BorrowDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BorrowDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ReturnDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReturnDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ActualReturnDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ActualReturnDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LateFee", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 5, 2, "LateFee", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [TabBorrow] ([UID], [MediaID], [BorrowDate], [ReturnDate], [ActualReturnDate], [LateFee]) VALUES (@UID, @MediaID, @BorrowDate, @ReturnDate, @ActualReturnDate, @LateFee);
+SELECT BID, UID, MediaID, BorrowDate, ReturnDate, ActualReturnDate, LateFee FROM TabBorrow WHERE (BID = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MediaID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MediaID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BorrowDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BorrowDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ReturnDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReturnDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ActualReturnDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ActualReturnDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LateFee", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 5, 2, "LateFee", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [TabBorrow] SET [UID] = @UID, [MediaID] = @MediaID, [BorrowDate] = @BorrowDate, [ReturnDate] = @ReturnDate, [ActualReturnDate] = @ActualReturnDate, [LateFee] = @LateFee WHERE (([BID] = @Original_BID) AND ([UID] = @Original_UID) AND ([MediaID] = @Original_MediaID) AND ([BorrowDate] = @Original_BorrowDate) AND ([ReturnDate] = @Original_ReturnDate) AND ([ActualReturnDate] = @Original_ActualReturnDate) AND ([LateFee] = @Original_LateFee));
+SELECT BID, UID, MediaID, BorrowDate, ReturnDate, ActualReturnDate, LateFee FROM TabBorrow WHERE (BID = @BID)";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MediaID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MediaID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BorrowDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BorrowDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ReturnDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReturnDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ActualReturnDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ActualReturnDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LateFee", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 5, 2, "LateFee", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_UID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MediaID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MediaID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BorrowDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BorrowDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ReturnDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReturnDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ActualReturnDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ActualReturnDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LateFee", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 5, 2, "LateFee", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "BID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::Data_Access.Properties.Settings.Default.DB_9AB8B7_6204ConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[5];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT        BID, UID, MediaID, BorrowDate, ReturnDate, ActualReturnDate, LateFe" +
+                "e\r\nFROM            TabBorrow";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = @"INSERT INTO TabBorrow
+                         (UID, MediaID, BorrowDate, ReturnDate)
+VALUES        (@UID,@MediaID,@BorrowDate,@ReturnDate); 
+SELECT BID, UID, MediaID, BorrowDate, ReturnDate, ActualReturnDate, LateFee FROM TabBorrow WHERE (BID = SCOPE_IDENTITY())";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "UID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MediaID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "MediaID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BorrowDate", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "BorrowDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ReturnDate", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "ReturnDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT        BID, UID, MediaID, BorrowDate, ReturnDate, ActualReturnDate, LateFe" +
+                "e\r\nFROM            TabBorrow\r\nWHERE        (ActualReturnDate = @ACTUAL_RETURN_DA" +
+                "TE)";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ACTUAL_RETURN_DATE", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "ActualReturnDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = "SELECT        BID, UID, MediaID, BorrowDate, ReturnDate, ActualReturnDate, LateFe" +
+                "e\r\nFROM            TabBorrow\r\nWHERE        (UID = @UID) AND (MediaID = @MediaId)" +
+                "";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "UID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MediaId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "MediaID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = "UPDATE       TabBorrow\r\nSET                ActualReturnDate = @ActualReturnDate, " +
+                "LateFee = @LateFee\r\nWHERE        (BID = @Original_BID); \r\nSELECT BID, UID, Media" +
+                "ID, BorrowDate, ReturnDate, ActualReturnDate, LateFee FROM TabBorrow WHERE (BID " +
+                "= @BID)";
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ActualReturnDate", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "ActualReturnDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LateFee", global::System.Data.SqlDbType.Decimal, 5, global::System.Data.ParameterDirection.Input, 5, 2, "LateFee", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "BID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "BID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(MediaDS.TabBorrowDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual MediaDS.TabBorrowDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            MediaDS.TabBorrowDataTable dataTable = new MediaDS.TabBorrowDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByBorrowed(MediaDS.TabBorrowDataTable dataTable, string ACTUAL_RETURN_DATE) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((ACTUAL_RETURN_DATE == null)) {
+                throw new global::System.ArgumentNullException("ACTUAL_RETURN_DATE");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(ACTUAL_RETURN_DATE));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual MediaDS.TabBorrowDataTable GetDataByBorrowed(string ACTUAL_RETURN_DATE) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((ACTUAL_RETURN_DATE == null)) {
+                throw new global::System.ArgumentNullException("ACTUAL_RETURN_DATE");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(ACTUAL_RETURN_DATE));
+            }
+            MediaDS.TabBorrowDataTable dataTable = new MediaDS.TabBorrowDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByUserMedia(MediaDS.TabBorrowDataTable dataTable, int UID, int MediaId) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(UID));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(MediaId));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual MediaDS.TabBorrowDataTable GetDataByUserMedia(int UID, int MediaId) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(UID));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(MediaId));
+            MediaDS.TabBorrowDataTable dataTable = new MediaDS.TabBorrowDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(MediaDS.TabBorrowDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(MediaDS dataSet) {
+            return this.Adapter.Update(dataSet, "TabBorrow");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(int Original_BID, int Original_UID, int Original_MediaID, System.DateTime Original_BorrowDate, System.DateTime Original_ReturnDate, System.DateTime Original_ActualReturnDate, decimal Original_LateFee) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_BID));
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_UID));
+            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_MediaID));
+            this.Adapter.DeleteCommand.Parameters[3].Value = ((System.DateTime)(Original_BorrowDate));
+            this.Adapter.DeleteCommand.Parameters[4].Value = ((System.DateTime)(Original_ReturnDate));
+            this.Adapter.DeleteCommand.Parameters[5].Value = ((System.DateTime)(Original_ActualReturnDate));
+            this.Adapter.DeleteCommand.Parameters[6].Value = ((decimal)(Original_LateFee));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(int UID, int MediaID, System.DateTime BorrowDate, System.DateTime ReturnDate, System.DateTime ActualReturnDate, decimal LateFee) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(UID));
+            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(MediaID));
+            this.Adapter.InsertCommand.Parameters[2].Value = ((System.DateTime)(BorrowDate));
+            this.Adapter.InsertCommand.Parameters[3].Value = ((System.DateTime)(ReturnDate));
+            this.Adapter.InsertCommand.Parameters[4].Value = ((System.DateTime)(ActualReturnDate));
+            this.Adapter.InsertCommand.Parameters[5].Value = ((decimal)(LateFee));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(int UID, int MediaID, System.DateTime BorrowDate, System.DateTime ReturnDate, System.DateTime ActualReturnDate, decimal LateFee, int Original_BID, int Original_UID, int Original_MediaID, System.DateTime Original_BorrowDate, System.DateTime Original_ReturnDate, System.DateTime Original_ActualReturnDate, decimal Original_LateFee, int BID) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(UID));
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(MediaID));
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((System.DateTime)(BorrowDate));
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((System.DateTime)(ReturnDate));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((System.DateTime)(ActualReturnDate));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((decimal)(LateFee));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_BID));
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_UID));
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_MediaID));
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((System.DateTime)(Original_BorrowDate));
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((System.DateTime)(Original_ReturnDate));
+            this.Adapter.UpdateCommand.Parameters[11].Value = ((System.DateTime)(Original_ActualReturnDate));
+            this.Adapter.UpdateCommand.Parameters[12].Value = ((decimal)(Original_LateFee));
+            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(BID));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(int UID, int MediaID, System.DateTime BorrowDate, System.DateTime ReturnDate, System.DateTime ActualReturnDate, decimal LateFee, int Original_BID, int Original_UID, int Original_MediaID, System.DateTime Original_BorrowDate, System.DateTime Original_ReturnDate, System.DateTime Original_ActualReturnDate, decimal Original_LateFee) {
+            return this.Update(UID, MediaID, BorrowDate, ReturnDate, ActualReturnDate, LateFee, Original_BID, Original_UID, Original_MediaID, Original_BorrowDate, Original_ReturnDate, Original_ActualReturnDate, Original_LateFee, Original_BID);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
+        public virtual int AddBorrow(int UID, int MediaID, string BorrowDate, string ReturnDate) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
+            command.Parameters[0].Value = ((int)(UID));
+            command.Parameters[1].Value = ((int)(MediaID));
+            if ((BorrowDate == null)) {
+                throw new global::System.ArgumentNullException("BorrowDate");
+            }
+            else {
+                command.Parameters[2].Value = ((string)(BorrowDate));
+            }
+            if ((ReturnDate == null)) {
+                throw new global::System.ArgumentNullException("ReturnDate");
+            }
+            else {
+                command.Parameters[3].Value = ((string)(ReturnDate));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
+        public virtual int UpdateBorrow(string ActualReturnDate, decimal LateFee, int Original_BID, int BID) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[4];
+            if ((ActualReturnDate == null)) {
+                throw new global::System.ArgumentNullException("ActualReturnDate");
+            }
+            else {
+                command.Parameters[0].Value = ((string)(ActualReturnDate));
+            }
+            command.Parameters[1].Value = ((decimal)(LateFee));
+            command.Parameters[2].Value = ((int)(Original_BID));
+            command.Parameters[3].Value = ((int)(BID));
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+    }
+    
+    /// <summary>
     ///TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     ///</summary>
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -5463,6 +6520,8 @@ SELECT RID, UID, MediaID, ReservedDate FROM TabReserved WHERE (RID = @RID)";
         private TabMediaTableAdapter _tabMediaTableAdapter;
         
         private TabReservedTableAdapter _tabReservedTableAdapter;
+        
+        private TabBorrowTableAdapter _tabBorrowTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -5551,6 +6610,20 @@ SELECT RID, UID, MediaID, ReservedDate FROM TabReserved WHERE (RID = @RID)";
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
+        public TabBorrowTableAdapter TabBorrowTableAdapter {
+            get {
+                return this._tabBorrowTableAdapter;
+            }
+            set {
+                this._tabBorrowTableAdapter = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public bool BackupDataSetBeforeUpdate {
             get {
                 return this._backupDataSetBeforeUpdate;
@@ -5588,6 +6661,10 @@ SELECT RID, UID, MediaID, ReservedDate FROM TabReserved WHERE (RID = @RID)";
                             && (this._tabReservedTableAdapter.Connection != null))) {
                     return this._tabReservedTableAdapter.Connection;
                 }
+                if (((this._tabBorrowTableAdapter != null) 
+                            && (this._tabBorrowTableAdapter.Connection != null))) {
+                    return this._tabBorrowTableAdapter.Connection;
+                }
                 return null;
             }
             set {
@@ -5614,6 +6691,9 @@ SELECT RID, UID, MediaID, ReservedDate FROM TabReserved WHERE (RID = @RID)";
                     count = (count + 1);
                 }
                 if ((this._tabReservedTableAdapter != null)) {
+                    count = (count + 1);
+                }
+                if ((this._tabBorrowTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -5672,6 +6752,15 @@ SELECT RID, UID, MediaID, ReservedDate FROM TabReserved WHERE (RID = @RID)";
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._tabBorrowTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.TabBorrow.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._tabBorrowTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             return result;
         }
         
@@ -5722,6 +6811,14 @@ SELECT RID, UID, MediaID, ReservedDate FROM TabReserved WHERE (RID = @RID)";
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._tabBorrowTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.TabBorrow.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._tabBorrowTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             return result;
         }
         
@@ -5732,6 +6829,14 @@ SELECT RID, UID, MediaID, ReservedDate FROM TabReserved WHERE (RID = @RID)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateDeletedRows(MediaDS dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
+            if ((this._tabBorrowTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.TabBorrow.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._tabBorrowTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._tabReservedTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.TabReserved.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -5836,6 +6941,11 @@ SELECT RID, UID, MediaID, ReservedDate FROM TabReserved WHERE (RID = @RID)";
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
+            if (((this._tabBorrowTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._tabBorrowTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
+                        "tring.");
+            }
             global::System.Data.IDbConnection workConnection = this.Connection;
             if ((workConnection == null)) {
                 throw new global::System.ApplicationException("TableAdapterManager contains no connection information. Set each TableAdapterMana" +
@@ -5911,6 +7021,15 @@ SELECT RID, UID, MediaID, ReservedDate FROM TabReserved WHERE (RID = @RID)";
                     if (this._tabReservedTableAdapter.Adapter.AcceptChangesDuringUpdate) {
                         this._tabReservedTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
                         adaptersWithAcceptChangesDuringUpdate.Add(this._tabReservedTableAdapter.Adapter);
+                    }
+                }
+                if ((this._tabBorrowTableAdapter != null)) {
+                    revertConnections.Add(this._tabBorrowTableAdapter, this._tabBorrowTableAdapter.Connection);
+                    this._tabBorrowTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._tabBorrowTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._tabBorrowTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._tabBorrowTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._tabBorrowTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -5990,6 +7109,10 @@ SELECT RID, UID, MediaID, ReservedDate FROM TabReserved WHERE (RID = @RID)";
                 if ((this._tabReservedTableAdapter != null)) {
                     this._tabReservedTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._tabReservedTableAdapter]));
                     this._tabReservedTableAdapter.Transaction = null;
+                }
+                if ((this._tabBorrowTableAdapter != null)) {
+                    this._tabBorrowTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._tabBorrowTableAdapter]));
+                    this._tabBorrowTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];
