@@ -11,8 +11,8 @@
     <Shape ID="DesignTable:TabGenre" ZOrder="5" X="809" Y="174" Height="134" Width="200" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="64" />
     <Shape ID="DesignTable:TabLanguage" ZOrder="12" X="803" Y="329" Height="134" Width="222" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="64" />
     <Shape ID="DesignTable:TabMedia" ZOrder="8" X="339" Y="26" Height="267" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="159" />
-    <Shape ID="DesignTable:TabReserved" ZOrder="4" X="482" Y="358" Height="210" Width="297" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="102" />
-    <Shape ID="DesignTable:TabBorrow" ZOrder="1" X="142" Y="345" Height="286" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="159" />
+    <Shape ID="DesignTable:TabReserved" ZOrder="4" X="501" Y="363" Height="210" Width="297" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="102" />
+    <Shape ID="DesignTable:TabBorrow" ZOrder="1" X="198" Y="339" Height="286" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="159" />
   </Shapes>
   <Connectors>
     <Connector ID="DesignRelation:fk_TabMedia_TabDirector" ZOrder="11" LineWidth="11">
@@ -62,24 +62,24 @@
     <Connector ID="DesignRelation:fk_TabReserved_TabMedia" ZOrder="3" LineWidth="11">
       <RoutePoints>
         <Point>
-          <X>561</X>
+          <X>580</X>
           <Y>293</Y>
         </Point>
         <Point>
-          <X>561</X>
-          <Y>358</Y>
+          <X>580</X>
+          <Y>363</Y>
         </Point>
       </RoutePoints>
     </Connector>
     <Connector ID="DesignRelation:fk_TabBorrow_TabMedia" ZOrder="2" LineWidth="11">
       <RoutePoints>
         <Point>
-          <X>374</X>
+          <X>430</X>
           <Y>293</Y>
         </Point>
         <Point>
-          <X>374</X>
-          <Y>345</Y>
+          <X>430</X>
+          <Y>339</Y>
         </Point>
       </RoutePoints>
     </Connector>

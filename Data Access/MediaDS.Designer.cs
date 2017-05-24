@@ -6204,13 +6204,12 @@ SELECT BID, UID, MediaID, BorrowDate, ReturnDate, ActualReturnDate, LateFee FROM
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[4].Connection = this.Connection;
             this._commandCollection[4].CommandText = "UPDATE       TabBorrow\r\nSET                ActualReturnDate = @ActualReturnDate, " +
-                "LateFee = @LateFee\r\nWHERE        (BID = @Original_BID); \r\nSELECT BID, UID, Media" +
-                "ID, BorrowDate, ReturnDate, ActualReturnDate, LateFee FROM TabBorrow WHERE (BID " +
-                "= @BID)";
+                "LateFee = @LateFee\r\nWHERE        (BID = @BID);   \r\nSELECT BID, UID, MediaID, Bor" +
+                "rowDate, ReturnDate, ActualReturnDate, LateFee FROM TabBorrow WHERE (BID = @BID)" +
+                "";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ActualReturnDate", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "ActualReturnDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LateFee", global::System.Data.SqlDbType.Decimal, 5, global::System.Data.ParameterDirection.Input, 5, 2, "LateFee", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "BID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "BID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
@@ -6470,7 +6469,7 @@ SELECT BID, UID, MediaID, BorrowDate, ReturnDate, ActualReturnDate, LateFee FROM
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
-        public virtual int UpdateBorrow(string ActualReturnDate, decimal LateFee, int Original_BID, int BID) {
+        public virtual int UpdateBorrow(string ActualReturnDate, decimal LateFee, int BID) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[4];
             if ((ActualReturnDate == null)) {
                 throw new global::System.ArgumentNullException("ActualReturnDate");
@@ -6479,8 +6478,7 @@ SELECT BID, UID, MediaID, BorrowDate, ReturnDate, ActualReturnDate, LateFee FROM
                 command.Parameters[0].Value = ((string)(ActualReturnDate));
             }
             command.Parameters[1].Value = ((decimal)(LateFee));
-            command.Parameters[2].Value = ((int)(Original_BID));
-            command.Parameters[3].Value = ((int)(BID));
+            command.Parameters[2].Value = ((int)(BID));
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {

@@ -14,6 +14,7 @@ namespace Data_Access
         private TabGenreTableAdapter _genreTableAdapter;
         private TabDirectorTableAdapter _directorTableAdapter;
         private TabReservedTableAdapter _reserveTableAdapter;
+        private TabBorrowTableAdapter _borrowTableAdapter;
 
         public MediaDAO()
         {
@@ -24,6 +25,7 @@ namespace Data_Access
             _directorTableAdapter = new TabDirectorTableAdapter();
             _mediaTableAdapter = new TabMediaTableAdapter();
             _reserveTableAdapter = new TabReservedTableAdapter();
+            _borrowTableAdapter = new TabBorrowTableAdapter();
         }
 
         public MediaDS.ViewMediaDataTable ListMedia()
@@ -207,6 +209,42 @@ namespace Data_Access
         public int DeleteReserve(int RID)
         {
             return _reserveTableAdapter.DeleteReserve(RID);
+        }
+
+        public MediaDS.TabBorrowDataTable GetBorrowByUserAndMedia(int userID, int mediaID)
+        {
+            try
+            {
+                _borrowTableAdapter.FillByUserMedia(_mediaDataSet.TabBorrow, userID, mediaID);
+                return _mediaDataSet.TabBorrow;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public MediaDS.TabBorrowDataTable GetBorrowed(string actualReturnDate)
+        {
+            try
+            {
+                _borrowTableAdapter.FillByBorrowed(_mediaDataSet.TabBorrow, actualReturnDate);
+                return _mediaDataSet.TabBorrow;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public int AddBorrow(int userID, int mediaID, string borrowDate, string returnDate)
+        {
+            return _borrowTableAdapter.AddBorrow(userID, mediaID, borrowDate, returnDate);
+        }
+
+        public int updateBorrow(int borrowID, string actualReturnDate, decimal LateFee)
+        {
+            return _borrowTableAdapter.UpdateBorrow(actualReturnDate, LateFee, borrowID);
         }
     }
 }
