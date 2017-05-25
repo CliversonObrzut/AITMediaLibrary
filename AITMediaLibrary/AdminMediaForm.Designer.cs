@@ -57,7 +57,6 @@
             this.addNewMediaLabel = new System.Windows.Forms.Label();
             this.searchMediaButton = new System.Windows.Forms.Button();
             this.searchMediaTextBox = new System.Windows.Forms.TextBox();
-            this.SearchGridView = new System.Windows.Forms.DataGridView();
             this.selectedMediaLabel = new System.Windows.Forms.Label();
             this.selectedMediaGridView = new System.Windows.Forms.DataGridView();
             this.listAllButton = new System.Windows.Forms.Button();
@@ -67,14 +66,14 @@
             this.updateSelectedMediaLabel = new System.Windows.Forms.Label();
             this.updateSelectedMediaButton = new System.Windows.Forms.Button();
             this.updateMediaGridView = new System.Windows.Forms.DataGridView();
-            this.searchLabel = new System.Windows.Forms.Label();
             this.cancelUpdateModeButton = new System.Windows.Forms.Button();
             this.updateMediaButton = new System.Windows.Forms.Button();
+            this.reservedMediaButton = new System.Windows.Forms.Button();
+            this.borrowedButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.mediaGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loggedInUserGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.addNewMediaGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SearchGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.selectedMediaGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deleteMediaGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.updateMediaGridView)).BeginInit();
@@ -249,7 +248,7 @@
             // 
             // userAdminButton
             // 
-            this.userAdminButton.Location = new System.Drawing.Point(564, 12);
+            this.userAdminButton.Location = new System.Drawing.Point(574, 12);
             this.userAdminButton.Name = "userAdminButton";
             this.userAdminButton.Size = new System.Drawing.Size(115, 31);
             this.userAdminButton.TabIndex = 18;
@@ -280,7 +279,7 @@
             // 
             this.loggedInLevelLabel.AutoSize = true;
             this.loggedInLevelLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.loggedInLevelLabel.Location = new System.Drawing.Point(749, 65);
+            this.loggedInLevelLabel.Location = new System.Drawing.Point(469, 19);
             this.loggedInLevelLabel.Name = "loggedInLevelLabel";
             this.loggedInLevelLabel.Size = new System.Drawing.Size(36, 13);
             this.loggedInLevelLabel.TabIndex = 36;
@@ -290,7 +289,7 @@
             // 
             this.loggedInUserLabel.AutoSize = true;
             this.loggedInUserLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.loggedInUserLabel.Location = new System.Drawing.Point(633, 65);
+            this.loggedInUserLabel.Location = new System.Drawing.Point(353, 19);
             this.loggedInUserLabel.Name = "loggedInUserLabel";
             this.loggedInUserLabel.Size = new System.Drawing.Size(35, 13);
             this.loggedInUserLabel.TabIndex = 35;
@@ -300,7 +299,7 @@
             // 
             this.loggedInUserGridView.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
             this.loggedInUserGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.loggedInUserGridView.Location = new System.Drawing.Point(627, 58);
+            this.loggedInUserGridView.Location = new System.Drawing.Point(347, 12);
             this.loggedInUserGridView.Name = "loggedInUserGridView";
             this.loggedInUserGridView.Size = new System.Drawing.Size(183, 28);
             this.loggedInUserGridView.TabIndex = 37;
@@ -326,7 +325,7 @@
             // 
             // searchMediaButton
             // 
-            this.searchMediaButton.Location = new System.Drawing.Point(259, 317);
+            this.searchMediaButton.Location = new System.Drawing.Point(738, 64);
             this.searchMediaButton.Name = "searchMediaButton";
             this.searchMediaButton.Size = new System.Drawing.Size(72, 23);
             this.searchMediaButton.TabIndex = 53;
@@ -336,19 +335,10 @@
             // 
             // searchMediaTextBox
             // 
-            this.searchMediaTextBox.Location = new System.Drawing.Point(69, 319);
+            this.searchMediaTextBox.Location = new System.Drawing.Point(532, 66);
             this.searchMediaTextBox.Name = "searchMediaTextBox";
-            this.searchMediaTextBox.Size = new System.Drawing.Size(176, 20);
+            this.searchMediaTextBox.Size = new System.Drawing.Size(198, 20);
             this.searchMediaTextBox.TabIndex = 50;
-            // 
-            // SearchGridView
-            // 
-            this.SearchGridView.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.SearchGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.SearchGridView.Location = new System.Drawing.Point(58, 312);
-            this.SearchGridView.Name = "SearchGridView";
-            this.SearchGridView.Size = new System.Drawing.Size(282, 33);
-            this.SearchGridView.TabIndex = 48;
             // 
             // selectedMediaLabel
             // 
@@ -371,9 +361,9 @@
             // 
             // listAllButton
             // 
-            this.listAllButton.Location = new System.Drawing.Point(351, 317);
+            this.listAllButton.Location = new System.Drawing.Point(308, 313);
             this.listAllButton.Name = "listAllButton";
-            this.listAllButton.Size = new System.Drawing.Size(75, 23);
+            this.listAllButton.Size = new System.Drawing.Size(115, 31);
             this.listAllButton.TabIndex = 55;
             this.listAllButton.Text = "List All";
             this.listAllButton.UseVisualStyleBackColor = true;
@@ -437,16 +427,6 @@
             this.updateMediaGridView.Size = new System.Drawing.Size(366, 35);
             this.updateMediaGridView.TabIndex = 60;
             // 
-            // searchLabel
-            // 
-            this.searchLabel.AutoSize = true;
-            this.searchLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.searchLabel.Location = new System.Drawing.Point(55, 296);
-            this.searchLabel.Name = "searchLabel";
-            this.searchLabel.Size = new System.Drawing.Size(44, 13);
-            this.searchLabel.TabIndex = 62;
-            this.searchLabel.Text = "Search:";
-            // 
             // cancelUpdateModeButton
             // 
             this.cancelUpdateModeButton.Location = new System.Drawing.Point(73, 493);
@@ -467,13 +447,34 @@
             this.updateMediaButton.UseVisualStyleBackColor = true;
             this.updateMediaButton.Click += new System.EventHandler(this.updateMediaButton_Click);
             // 
+            // reservedMediaButton
+            // 
+            this.reservedMediaButton.Location = new System.Drawing.Point(57, 313);
+            this.reservedMediaButton.Name = "reservedMediaButton";
+            this.reservedMediaButton.Size = new System.Drawing.Size(115, 31);
+            this.reservedMediaButton.TabIndex = 65;
+            this.reservedMediaButton.Text = "See Reserved";
+            this.reservedMediaButton.UseVisualStyleBackColor = true;
+            this.reservedMediaButton.Click += new System.EventHandler(this.reservedMediaButton_Click);
+            // 
+            // borrowedButton
+            // 
+            this.borrowedButton.Location = new System.Drawing.Point(182, 313);
+            this.borrowedButton.Name = "borrowedButton";
+            this.borrowedButton.Size = new System.Drawing.Size(115, 31);
+            this.borrowedButton.TabIndex = 66;
+            this.borrowedButton.Text = "See Borrowed";
+            this.borrowedButton.UseVisualStyleBackColor = true;
+            this.borrowedButton.Click += new System.EventHandler(this.borrowedButton_Click);
+            // 
             // AdminMediaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(873, 534);
-            this.Controls.Add(this.searchLabel);
+            this.Controls.Add(this.borrowedButton);
+            this.Controls.Add(this.reservedMediaButton);
             this.Controls.Add(this.updateSelectedMediaLabel);
             this.Controls.Add(this.deleteMediaLabel);
             this.Controls.Add(this.deleteMediaButton);
@@ -481,7 +482,6 @@
             this.Controls.Add(this.listAllButton);
             this.Controls.Add(this.searchMediaButton);
             this.Controls.Add(this.searchMediaTextBox);
-            this.Controls.Add(this.SearchGridView);
             this.Controls.Add(this.selectedMediaLabel);
             this.Controls.Add(this.selectedMediaGridView);
             this.Controls.Add(this.addNewMediaLabel);
@@ -522,7 +522,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.loggedInUserGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.addNewMediaGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SearchGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.selectedMediaGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deleteMediaGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.updateMediaGridView)).EndInit();
@@ -561,7 +560,6 @@
         private System.Windows.Forms.Label addNewMediaLabel;
         private System.Windows.Forms.Button searchMediaButton;
         private System.Windows.Forms.TextBox searchMediaTextBox;
-        private System.Windows.Forms.DataGridView SearchGridView;
         private System.Windows.Forms.Label selectedMediaLabel;
         private System.Windows.Forms.DataGridView selectedMediaGridView;
         private System.Windows.Forms.Button listAllButton;
@@ -571,8 +569,9 @@
         private System.Windows.Forms.Label updateSelectedMediaLabel;
         private System.Windows.Forms.Button updateSelectedMediaButton;
         private System.Windows.Forms.DataGridView updateMediaGridView;
-        private System.Windows.Forms.Label searchLabel;
         private System.Windows.Forms.Button cancelUpdateModeButton;
         private System.Windows.Forms.Button updateMediaButton;
+        private System.Windows.Forms.Button reservedMediaButton;
+        private System.Windows.Forms.Button borrowedButton;
     }
 }

@@ -41,6 +41,19 @@ namespace Data_Access
             }
         }
 
+        public MediaDS.ViewMediaDataTable GetMediaById(int mediaID)
+        {
+            try
+            {
+                _viewMediaTableAdapter.FillByMediaId(_mediaDataSet.ViewMedia, mediaID);
+                return _mediaDataSet.ViewMedia;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
         public MediaDS.ViewMediaDataTable ListMediaByPublishYear(int publishYear)
         {
             try
@@ -188,11 +201,37 @@ namespace Data_Access
             return _mediaTableAdapter.DeleteMedia(mediaID);
         }
 
-        public MediaDS.TabReservedDataTable GetReserveByMedia(int mediaID)
+        public MediaDS.TabReservedDataTable GetReservedByMedia(int mediaID)
         {
             try
             {
-                _reserveTableAdapter.FillByMediaID(_mediaDataSet.TabReserved, mediaID);
+                _reserveTableAdapter.FillByMedia(_mediaDataSet.TabReserved, mediaID);
+                return _mediaDataSet.TabReserved;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public MediaDS.TabReservedDataTable GetReservedByUser(int userID)
+        {
+            try
+            {
+                _reserveTableAdapter.FillByUser(_mediaDataSet.TabReserved, userID);
+                return _mediaDataSet.TabReserved;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public MediaDS.TabReservedDataTable GetAllReserves()
+        {
+            try
+            {
+                _reserveTableAdapter.Fill(_mediaDataSet.TabReserved);
                 return _mediaDataSet.TabReserved;
             }
             catch (Exception)
@@ -211,11 +250,11 @@ namespace Data_Access
             return _reserveTableAdapter.DeleteReserve(RID);
         }
 
-        public MediaDS.TabBorrowDataTable GetBorrowByUserAndMedia(int userID, int mediaID)
+        public MediaDS.TabBorrowDataTable GetAllBorrows()
         {
             try
             {
-                _borrowTableAdapter.FillByUserMedia(_mediaDataSet.TabBorrow, userID, mediaID);
+                _borrowTableAdapter.Fill(_mediaDataSet.TabBorrow);
                 return _mediaDataSet.TabBorrow;
             }
             catch (Exception)
@@ -224,11 +263,37 @@ namespace Data_Access
             }
         }
 
-        public MediaDS.TabBorrowDataTable GetBorrowed(string actualReturnDate)
+        public MediaDS.TabBorrowDataTable GetBorrowById(int BID)
         {
             try
             {
-                _borrowTableAdapter.FillByBorrowed(_mediaDataSet.TabBorrow, actualReturnDate);
+                _borrowTableAdapter.FillByBorrowId(_mediaDataSet.TabBorrow, BID);
+                return _mediaDataSet.TabBorrow;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public MediaDS.TabBorrowDataTable GetBorrowedByMedia(int mediaID)
+        {
+            try
+            {
+                _borrowTableAdapter.FillBorrowsByMedia(_mediaDataSet.TabBorrow, mediaID);
+                return _mediaDataSet.TabBorrow;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public MediaDS.TabBorrowDataTable GetBorrowsByUser(int userID)
+        {
+            try
+            {
+                _borrowTableAdapter.FillBorrowsByUser(_mediaDataSet.TabBorrow, userID);
                 return _mediaDataSet.TabBorrow;
             }
             catch (Exception)

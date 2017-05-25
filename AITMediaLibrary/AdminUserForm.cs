@@ -9,6 +9,7 @@ namespace AITMediaLibrary
     public partial class AdminUserForm : Form
     {
         private readonly UserLogic _userLogic;
+        private readonly MediaLogic _mediaLogic;
 
         private UserModel _selectedUser;
 
@@ -16,6 +17,7 @@ namespace AITMediaLibrary
         {
             InitializeComponent();
             _userLogic = new UserLogic();
+            _mediaLogic = new MediaLogic();
         }
 
         private void AdminForm_Load(object sender, EventArgs e)
@@ -93,15 +95,30 @@ namespace AITMediaLibrary
             }
         }
 
+        private bool HasBorrowedOrReserved()
+        {
+            ReserveModel reserve = _mediaLogic.GetReservedByUser(_selectedUser.UserID);
+            List<MediaModel> borroweds = _mediaLogic.GetBorrowedByUser(_selectedUser.UserID);
+            if (reserve != null || borroweds.Count > 0)
+                return true;
+            return false;
+        }
+
         private void deleteSelectedUserButton_Click(object sender, EventArgs e)
         {
             if (_selectedUser != null && _selectedUser.UserName != CurrentUser.UserName)
             {
-                _userLogic.DeleteUserByUserID(_selectedUser.UserID, CurrentUser.UserLevel);
-
-                _selectedUser = null;
-                MessageBox.Show(@"Selected user successfully deleted!");
-                RefreshUserList();
+                if (HasBorrowedOrReserved())
+                {
+                    MessageBox.Show(@"Not possible to delete because this user has borrowed or reserved media");
+                }
+                else
+                {
+                    _userLogic.DeleteUserByUserID(_selectedUser.UserID, CurrentUser.UserLevel);
+                    _selectedUser = null;
+                    MessageBox.Show(@"Selected user successfully deleted!");
+                    RefreshUserList();
+                }
             }
             else
                 MessageBox.Show(@"Impossible to delete the logged in user!");

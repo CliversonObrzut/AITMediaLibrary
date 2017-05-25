@@ -265,7 +265,7 @@
             // 
             this.loggedInLevelLabel.AutoSize = true;
             this.loggedInLevelLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.loggedInLevelLabel.Location = new System.Drawing.Point(479, 66);
+            this.loggedInLevelLabel.Location = new System.Drawing.Point(457, 19);
             this.loggedInLevelLabel.Name = "loggedInLevelLabel";
             this.loggedInLevelLabel.Size = new System.Drawing.Size(36, 13);
             this.loggedInLevelLabel.TabIndex = 33;
@@ -275,7 +275,7 @@
             // 
             this.loggedInUserLabel.AutoSize = true;
             this.loggedInUserLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.loggedInUserLabel.Location = new System.Drawing.Point(294, 66);
+            this.loggedInUserLabel.Location = new System.Drawing.Point(321, 19);
             this.loggedInUserLabel.Name = "loggedInUserLabel";
             this.loggedInUserLabel.Size = new System.Drawing.Size(35, 13);
             this.loggedInUserLabel.TabIndex = 32;
@@ -285,9 +285,9 @@
             // 
             this.loggedInUserGridView.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
             this.loggedInUserGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.loggedInUserGridView.Location = new System.Drawing.Point(286, 59);
+            this.loggedInUserGridView.Location = new System.Drawing.Point(313, 12);
             this.loggedInUserGridView.Name = "loggedInUserGridView";
-            this.loggedInUserGridView.Size = new System.Drawing.Size(254, 28);
+            this.loggedInUserGridView.Size = new System.Drawing.Size(197, 28);
             this.loggedInUserGridView.TabIndex = 34;
             // 
             // addUserGridView

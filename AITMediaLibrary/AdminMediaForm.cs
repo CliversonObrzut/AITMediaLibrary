@@ -158,11 +158,11 @@ namespace AITMediaLibrary
                 try
                 {
                     _mediaLogic.AddNewMedia(titleTextBox.Text,
-                                                        int.Parse(genreComboBox.SelectedValue.ToString()),
-                                                        int.Parse(directorComboBox.SelectedValue.ToString()),
-                                                        int.Parse(languageComboBox.SelectedValue.ToString()),
-                                                        int.Parse(publishYearTextBox.Text),
-                                                        decimal.Parse(budgetTextBox.Text));
+                                  int.Parse(genreComboBox.SelectedValue.ToString()),
+                                  int.Parse(directorComboBox.SelectedValue.ToString()),
+                                  int.Parse(languageComboBox.SelectedValue.ToString()),
+                                  int.Parse(publishYearTextBox.Text),
+                                  decimal.Parse(budgetTextBox.Text));
                     MessageBox.Show(@"New media successfully created!");
                     RefresMediaList();
                 }
@@ -177,15 +177,30 @@ namespace AITMediaLibrary
             }
         }
 
+        private bool IsBorrowedOrReserved()
+        {
+            ReserveModel reserve = _mediaLogic.GetReserveByMediaID(_selectedMedia.MediaId);
+            BorrowModel borrow = _mediaLogic.GetBorrowedByMedia(_selectedMedia.MediaId);
+            if (reserve != null || borrow != null)
+                return true;
+            return false;
+        }
+
         private void deleteMediaButton_Click(object sender, EventArgs e)
         {
             if (_selectedMedia != null)
             {
-                _mediaLogic.DeleteMedia(_selectedMedia.MediaId);
-
-                _selectedMedia = null;
-                MessageBox.Show(@"Selected media successfully deleted!");
-                RefresMediaList();
+                if (IsBorrowedOrReserved())
+                {
+                    MessageBox.Show(@"Not possible to delete because this media is borrowed or reserved");
+                }
+                else
+                {
+                    _mediaLogic.DeleteMedia(_selectedMedia.MediaId);
+                    _selectedMedia = null;
+                    MessageBox.Show(@"Selected media successfully deleted!");
+                    RefresMediaList();
+                }
             }
             else
                 MessageBox.Show(@"Error deleting media!");
@@ -269,6 +284,7 @@ namespace AITMediaLibrary
         {
             CurrentUser.UserName = "";
             CurrentUser.UserLevel = 0;
+            CurrentUser.UserID = 0;
 
             System.Threading.Thread t = new System.Threading.Thread(OpenLoginForm);
             t.Start();
@@ -309,6 +325,24 @@ namespace AITMediaLibrary
                 FillDirectorComboBox();
                 FillGenreComboBox();
             }
+        }
+
+        private void reservedMediaButton_Click(object sender, EventArgs e)
+        {
+            List<MediaModel> medias = _mediaLogic.GetAllReserves();
+            mediaGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            mediaGridView.DataSource = medias;
+            SelectedMediaOnLoad(medias);
+            CleanTextBoxes();
+        }
+
+        private void borrowedButton_Click(object sender, EventArgs e)
+        {
+            List<MediaModel> medias = _mediaLogic.GetAllBorrowed();
+            mediaGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            mediaGridView.DataSource = medias;
+            SelectedMediaOnLoad(medias);
+            CleanTextBoxes();
         }
     }
 }

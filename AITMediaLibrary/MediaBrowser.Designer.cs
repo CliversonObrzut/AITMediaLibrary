@@ -62,7 +62,7 @@
             this.userGridView = new System.Windows.Forms.DataGridView();
             this.reserveButton = new System.Windows.Forms.Button();
             this.borrowButton = new System.Windows.Forms.Button();
-            this.returnMedia = new System.Windows.Forms.Button();
+            this.returnMediaButton = new System.Windows.Forms.Button();
             this.borrowedMediaComboBox = new System.Windows.Forms.ComboBox();
             this.unreserveButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.mediaGridView)).BeginInit();
@@ -384,15 +384,17 @@
             this.borrowButton.TabIndex = 33;
             this.borrowButton.Text = "Borrow Media";
             this.borrowButton.UseVisualStyleBackColor = true;
+            this.borrowButton.Click += new System.EventHandler(this.borrowButton_Click);
             // 
-            // returnMedia
+            // returnMediaButton
             // 
-            this.returnMedia.Location = new System.Drawing.Point(701, 351);
-            this.returnMedia.Name = "returnMedia";
-            this.returnMedia.Size = new System.Drawing.Size(126, 23);
-            this.returnMedia.TabIndex = 34;
-            this.returnMedia.Text = "Return Media";
-            this.returnMedia.UseVisualStyleBackColor = true;
+            this.returnMediaButton.Location = new System.Drawing.Point(701, 351);
+            this.returnMediaButton.Name = "returnMediaButton";
+            this.returnMediaButton.Size = new System.Drawing.Size(126, 23);
+            this.returnMediaButton.TabIndex = 34;
+            this.returnMediaButton.Text = "Return Media";
+            this.returnMediaButton.UseVisualStyleBackColor = true;
+            this.returnMediaButton.Click += new System.EventHandler(this.returnMedia_Click);
             // 
             // borrowedMediaComboBox
             // 
@@ -419,7 +421,7 @@
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(891, 522);
             this.Controls.Add(this.borrowedMediaComboBox);
-            this.Controls.Add(this.returnMedia);
+            this.Controls.Add(this.returnMediaButton);
             this.Controls.Add(this.borrowButton);
             this.Controls.Add(this.reserveButton);
             this.Controls.Add(this.logoutButton);
@@ -503,7 +505,7 @@
         private System.Windows.Forms.DataGridView userGridView;
         private System.Windows.Forms.Button reserveButton;
         private System.Windows.Forms.Button borrowButton;
-        private System.Windows.Forms.Button returnMedia;
+        private System.Windows.Forms.Button returnMediaButton;
         private System.Windows.Forms.ComboBox borrowedMediaComboBox;
         private System.Windows.Forms.Button unreserveButton;
     }

@@ -1,13 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Diagnostics.CodeAnalysis;
 using Data_Access;
 
 namespace Business_Logic
 {
+    [SuppressMessage("ReSharper", "InconsistentNaming")]
     public class MediaLogic
     {
         private readonly MediaDAO _mediaDao;
+
+        private const decimal FeePerDayLate = 0.5m;
 
         public MediaLogic()
         {
@@ -148,21 +151,34 @@ namespace Business_Logic
 
         public ReserveModel GetReserveByMediaID(int mediaID)
         {
-            MediaDS.TabReservedDataTable reserveTable = _mediaDao.GetReserveByMedia(mediaID);
+            MediaDS.TabReservedDataTable reserveTable = _mediaDao.GetReservedByMedia(mediaID);
             ReserveModel reserve = null;
             if (reserveTable.Rows.Count != 0)
                 reserve = ReserveModel.Parse(reserveTable[0]);
-
             return reserve;
         }
 
-        public bool IsReserved(int mediaID)
+        public ReserveModel GetReservedByUser(int userID)
         {
-            ReserveModel reserve = GetReserveByMediaID(mediaID);
+            MediaDS.TabReservedDataTable reserveTable = _mediaDao.GetReservedByUser(userID);
+            ReserveModel reserve = null;
+            if (reserveTable.Rows.Count != 0)
+                reserve = ReserveModel.Parse(reserveTable[0]);
+            return reserve;
+        }
 
-            if (reserve == null)
-                return false;
-            return true;
+        public List<MediaModel> GetAllReserves()
+        {
+            MediaDS.TabReservedDataTable reserveTable = _mediaDao.GetAllReserves();
+            List<MediaModel> medias = new List<MediaModel>();
+            foreach (MediaDS.TabReservedRow row in reserveTable)
+            {
+                MediaDS.ViewMediaDataTable mediaDS = _mediaDao.GetMediaById(row.MediaID);
+                MediaDS.ViewMediaRow mediaDSRow = mediaDS[0];
+                MediaModel media = MediaModel.Parse(mediaDSRow);
+                medias.Add(media);
+            }
+            return medias;
         }
 
         public int AddReserve(int mediaID, int userID)
@@ -173,6 +189,87 @@ namespace Business_Logic
         public int DeleteReserve(int RID)
         {
             return _mediaDao.DeleteReserve(RID);
+        }
+
+        public List<MediaModel> GetBorrowedByUser(int userId)
+        {
+            MediaDS.TabBorrowDataTable borrowTable = _mediaDao.GetBorrowsByUser(userId);
+            List<MediaModel> medias = new List<MediaModel>();
+            foreach (MediaDS.TabBorrowRow row in borrowTable)
+            {
+                BorrowModel borrow = BorrowModel.Parse(row);
+                if (borrow.IsActive())
+                {
+                    MediaDS.ViewMediaDataTable mediaDS = _mediaDao.GetMediaById(row.MediaID);
+                    MediaDS.ViewMediaRow mediaDSRow = mediaDS[0];
+                    MediaModel media = MediaModel.Parse(mediaDSRow);
+                    medias.Add(media);
+                }
+            }
+            return medias;
+        }
+
+        public BorrowModel GetBorrowedByMedia(int mediaID)
+        {
+            MediaDS.TabBorrowDataTable borrowTable = _mediaDao.GetBorrowedByMedia(mediaID);
+            List<BorrowModel> borrows = new List<BorrowModel>();
+            foreach (MediaDS.TabBorrowRow row in borrowTable)
+            {
+                BorrowModel borrowDB = BorrowModel.Parse(row);
+                if(borrowDB.IsActive())
+                    borrows.Add(borrowDB);
+            }
+            BorrowModel borrow = null;
+            if (borrows.Count > 0)
+                borrow = borrows[0];
+            return borrow;
+        }
+
+        public BorrowModel GetBorrowById(int borrowID)
+        {
+            MediaDS.TabBorrowDataTable borrowTable = _mediaDao.GetBorrowById(borrowID);
+            BorrowModel borrow = null;
+            if (borrowTable.Rows.Count != 0)
+                borrow = BorrowModel.Parse(borrowTable[0]);
+
+            return borrow;
+        }
+
+        public List<MediaModel> GetAllBorrowed()
+        {
+            MediaDS.TabBorrowDataTable borrowTable = _mediaDao.GetAllBorrows();
+            List<MediaModel> medias = new List<MediaModel>();
+            foreach (MediaDS.TabBorrowRow row in borrowTable)
+            {
+                BorrowModel borrow = BorrowModel.Parse(row);
+                if (borrow.IsActive())
+                {
+                    MediaDS.ViewMediaDataTable mediaDS = _mediaDao.GetMediaById(row.MediaID);
+                    MediaDS.ViewMediaRow mediaDSRow = mediaDS[0];
+                    MediaModel media = MediaModel.Parse(mediaDSRow);
+                    medias.Add(media);
+                }
+            }
+            return medias;
+        }
+
+        public int AddBorrow(int mediaID, int userID)
+        {
+            return _mediaDao.AddBorrow(userID, mediaID, DateTime.Now.ToString("dd/MM/yyyy"),(DateTime.Now.AddDays(7)).ToString("dd/MM/yyyy"));
+        }
+
+        public int ReturnBorrow(int BID)
+        {
+            decimal lateFee = 0;
+            BorrowModel borrow = GetBorrowById(BID);
+            
+            if (DateTime.Now > borrow.ReturnDate)
+            {
+                TimeSpan daysLate = DateTime.Now - borrow.BorrowDate;
+                lateFee = daysLate.Days * FeePerDayLate;
+            }
+
+            return _mediaDao.updateBorrow(BID, DateTime.Now.ToString("dd/MM/yyyy"), lateFee);
         }
 
         private static void GetListOfMediasFromDataTable(MediaDS.ViewMediaDataTable mediaTable, List<MediaModel> medias)

@@ -9,6 +9,8 @@ namespace AITMediaLibrary
     {
         private readonly MediaLogic _mediaLogic;
 
+        private MediaModel _selectedMedia;
+
         public MediaBrowser()
         {
             _mediaLogic = new MediaLogic();
@@ -19,18 +21,26 @@ namespace AITMediaLibrary
         {
             try
             {
-                List<MediaModel> medias = _mediaLogic.ListMedia();
-                mediaGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-                mediaGridView.DataSource = medias;
                 userLabel.Text = @"User:  " + CurrentUser.UserName;
                 levelLabel.Text = @"Level:  " + CurrentUser.UserLevel;
-                SelectedMediaOnLoad(medias);
-                CleanTextBoxes();
+                RefresMediaList();
+                FillBorrowedComboBox();
+
             }
             catch (Exception)
             {
-                errorDBLoadingLabel.Text = @"Sorry, It was not possible to load the data";
+                MessageBox.Show(@"Sorry, It was not possible to load the data", @"Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void RefresMediaList()
+        {
+            List<MediaModel> medias = _mediaLogic.ListMedia();
+            mediaGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            mediaGridView.DataSource = medias;
+            SelectedMediaOnLoad(medias);
+            CheckReservesAndBorrows();
+            CleanTextBoxes();
         }
 
         private void yearSearchButton_Click(object sender, EventArgs e)
@@ -131,8 +141,7 @@ namespace AITMediaLibrary
 
         private void listAllButton_Click(object sender, EventArgs e)
         {
-            errorDBLoadingLabel.Text = "";
-            MediaBrowser_Load(sender, e);
+            RefresMediaList();
         }
 
         private void mediaGridView_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -142,21 +151,47 @@ namespace AITMediaLibrary
             {
                 List<MediaModel> medias = (List<MediaModel>)mediaGridView.DataSource;
                 MediaModel media = medias[row];
-
-                ReserveModel reserve = _mediaLogic.GetReserveByMediaID(media.MediaId);
-                if (reserve != null && reserve.UID == CurrentUser.UserID)
-                    reserveButton.Visible = false;
-                else
-                    reserveButton.Visible = true;
-
-                selectedMediaLabel.Text = @"Selected Media: " + media.MediaName;
-                errorDBLoadingLabel.Text = "";
+                _selectedMedia = media;
+                CheckReservesAndBorrows();
+                selectedMediaLabel.Text = @"Selected Media: " + _selectedMedia.MediaName;
             }
+        }
+
+        private void CheckReservesAndBorrows()
+        {
+            ReserveModel reserve = _mediaLogic.GetReserveByMediaID(_selectedMedia.MediaId);
+            BorrowModel borrow = _mediaLogic.GetBorrowedByMedia(_selectedMedia.MediaId);
+
+            if (reserve != null && reserve.UID == CurrentUser.UserID)
+            {
+                reserveButton.Visible = false;
+            }
+            else
+            {
+                reserveButton.Visible = true;
+                if (borrow != null && borrow.UID == CurrentUser.UserID)
+                {
+                    reserveButton.Enabled = false;
+                    unreserveButton.Enabled = false;
+                }
+                else
+                {
+                    reserveButton.Enabled = true;
+                    unreserveButton.Enabled = true;
+                }
+                    
+            }
+
+            if (borrow != null)
+                borrowButton.Enabled = false;
+            else
+                borrowButton.Enabled = true;
         }
 
         private void SelectedMediaOnLoad(List<MediaModel> medias)
         {
             MediaModel media = medias[0];
+            _selectedMedia = media;
             selectedMediaLabel.Text = @"Selected Media: " + media.MediaName;
         }
 
@@ -179,14 +214,13 @@ namespace AITMediaLibrary
                 genreTextBox.Text = "";
             if(num != 6)
                 budgetTextBox.Text = "";
-            if(num != 0)
-                errorDBLoadingLabel.Text = "";
         }
 
         private void logoutButton_Click(object sender, EventArgs e)
         {
             CurrentUser.UserName = "";
             CurrentUser.UserLevel = 0;
+            CurrentUser.UserID = 0;
 
             System.Threading.Thread t = new System.Threading.Thread(OpenLoginForm);
             t.Start();
@@ -202,17 +236,15 @@ namespace AITMediaLibrary
         {
             if (mediaGridView.CurrentRow != null)
             {
-                int indexRow = mediaGridView.CurrentRow.Index;
-                List<MediaModel> medias = (List<MediaModel>)mediaGridView.DataSource;
-                MediaModel media = medias[indexRow];
-
-                if (_mediaLogic.IsReserved(media.MediaId))
+                ReserveModel reserve = _mediaLogic.GetReserveByMediaID(_selectedMedia.MediaId);
+                if (reserve != null)
                     MessageBox.Show(@"This media is reserved by another user!");
                 else
                 {
-                    _mediaLogic.AddReserve(media.MediaId, CurrentUser.UserID);
+                    _mediaLogic.AddReserve(_selectedMedia.MediaId, CurrentUser.UserID);
                     MessageBox.Show(@"Media reserved!");
-                    reserveButton.Visible = false;
+                    CheckReservesAndBorrows();
+                    mediaGridView.Focus();
                 } 
             }
             else
@@ -223,15 +255,12 @@ namespace AITMediaLibrary
         {
             if (mediaGridView.CurrentRow != null)
             {
-                int indexRow = mediaGridView.CurrentRow.Index;
-                List<MediaModel> medias = (List<MediaModel>)mediaGridView.DataSource;
-                MediaModel media = medias[indexRow];
-
-                ReserveModel reserve = _mediaLogic.GetReserveByMediaID(media.MediaId);
+                ReserveModel reserve = _mediaLogic.GetReserveByMediaID(_selectedMedia.MediaId);
 
                 _mediaLogic.DeleteReserve(reserve.RID);
                 MessageBox.Show(@"Media reserve canceled!");
-                reserveButton.Visible = true;
+                CheckReservesAndBorrows();
+                mediaGridView.Focus();
             }
             else
                 MessageBox.Show(@"None media is selected!");
@@ -253,6 +282,62 @@ namespace AITMediaLibrary
                 DataGridViewCellEventArgs ev = new DataGridViewCellEventArgs(colIndex, rowIndex);
                 mediaGridView_CellClick(sender, ev);
             }
+        }
+
+        private void borrowButton_Click(object sender, EventArgs e)
+        {
+            if (mediaGridView.CurrentRow != null)
+            {
+                ReserveModel reserve = _mediaLogic.GetReserveByMediaID(_selectedMedia.MediaId);
+                if (reserve != null && reserve.UID != CurrentUser.UserID)
+                {
+                    MessageBox.Show(@"You can not borrow because this media is reserved by another user!", @"Failed", MessageBoxButtons.OK ,MessageBoxIcon.Error);
+                }
+                else
+                {
+                    _mediaLogic.AddBorrow(_selectedMedia.MediaId, CurrentUser.UserID);
+                    MessageBox.Show(@"Media borrowed successfully!");
+                    CheckReservesAndBorrows();
+                    FillBorrowedComboBox();
+                    if (reserveButton.Visible == false)
+                        unreserveButton_Click(sender, e);
+                    mediaGridView.Focus();
+                }
+            }
+            else
+                MessageBox.Show(@"None media is selected!");
+        }
+
+        public void FillBorrowedComboBox()
+        {
+            List<MediaModel> medias = _mediaLogic.GetBorrowedByUser(CurrentUser.UserID);
+            if (medias.Count > 0)
+            {
+                returnMediaButton.Enabled = true;
+                borrowedMediaComboBox.DataSource = medias;
+                borrowedMediaComboBox.ValueMember = "MediaID";
+                borrowedMediaComboBox.DisplayMember = "MediaName";
+            }
+            else
+            {
+                borrowedMediaComboBox.DataSource = medias;
+                borrowedMediaComboBox.Text = "";
+                returnMediaButton.Enabled = false;
+            }
+        }
+
+        private void returnMedia_Click(object sender, EventArgs e)
+        {
+            BorrowModel borrow = _mediaLogic.GetBorrowedByMedia(int.Parse(borrowedMediaComboBox.SelectedValue.ToString()));
+            _mediaLogic.ReturnBorrow(borrow.BID);
+            borrow.ActualReturnDate = DateTime.Now;
+            string lateFeeMessage = "";
+            if (borrow.IsLate())
+                lateFeeMessage = "Late fee to pay: $ " + borrow.LateFee;
+            MessageBox.Show(@"Media returned successfully! " + lateFeeMessage);
+            CheckReservesAndBorrows();
+            FillBorrowedComboBox();
+            mediaGridView.Focus();
         }
     }
 }
