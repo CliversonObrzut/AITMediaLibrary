@@ -339,5 +339,35 @@ namespace AITMediaLibrary
             FillBorrowedComboBox();
             mediaGridView.Focus();
         }
+
+        private void publishYearTextBox_Click(object sender, EventArgs e)
+        {
+            CleanTextBoxes(1);
+        }
+
+        private void directorNameTextBox_Click(object sender, EventArgs e)
+        {
+            CleanTextBoxes(2);
+        }
+
+        private void titleTextBox_Click(object sender, EventArgs e)
+        {
+            CleanTextBoxes(3);
+        }
+
+        private void languageTextBox_Click(object sender, EventArgs e)
+        {
+            CleanTextBoxes(4);
+        }
+
+        private void genreTextBox_Click(object sender, EventArgs e)
+        {
+            CleanTextBoxes(5);
+        }
+
+        private void budgetTextBox_Click(object sender, EventArgs e)
+        {
+            CleanTextBoxes(6);
+        }
     }
 }

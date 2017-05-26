@@ -111,6 +111,7 @@
             this.publishYearTextBox.Name = "publishYearTextBox";
             this.publishYearTextBox.Size = new System.Drawing.Size(100, 20);
             this.publishYearTextBox.TabIndex = 3;
+            this.publishYearTextBox.Click += new System.EventHandler(this.publishYearTextBox_Click);
             // 
             // yearSearchButton
             // 
@@ -158,6 +159,7 @@
             this.directorNameTextBox.Name = "directorNameTextBox";
             this.directorNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.directorNameTextBox.TabIndex = 8;
+            this.directorNameTextBox.Click += new System.EventHandler(this.directorNameTextBox_Click);
             // 
             // directorSearchButton
             // 
@@ -198,6 +200,7 @@
             this.titleTextBox.Name = "titleTextBox";
             this.titleTextBox.Size = new System.Drawing.Size(100, 20);
             this.titleTextBox.TabIndex = 12;
+            this.titleTextBox.Click += new System.EventHandler(this.titleTextBox_Click);
             // 
             // titleLabel
             // 
@@ -225,6 +228,7 @@
             this.languageTextBox.Name = "languageTextBox";
             this.languageTextBox.Size = new System.Drawing.Size(100, 20);
             this.languageTextBox.TabIndex = 15;
+            this.languageTextBox.Click += new System.EventHandler(this.languageTextBox_Click);
             // 
             // languageLabel
             // 
@@ -252,6 +256,7 @@
             this.genreTextBox.Name = "genreTextBox";
             this.genreTextBox.Size = new System.Drawing.Size(100, 20);
             this.genreTextBox.TabIndex = 18;
+            this.genreTextBox.Click += new System.EventHandler(this.genreTextBox_Click);
             // 
             // genreLabel
             // 
@@ -279,6 +284,7 @@
             this.budgetTextBox.Name = "budgetTextBox";
             this.budgetTextBox.Size = new System.Drawing.Size(100, 20);
             this.budgetTextBox.TabIndex = 21;
+            this.budgetTextBox.Click += new System.EventHandler(this.budgetTextBox_Click);
             // 
             // budgetLabel
             // 
