@@ -99,6 +99,7 @@
             this.mediaGridView.Size = new System.Drawing.Size(752, 201);
             this.mediaGridView.TabIndex = 1;
             this.mediaGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.mediaGridView_CellClick);
+            this.mediaGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ArrowKeyUpDown_press);
             // 
             // titleLabel
             // 

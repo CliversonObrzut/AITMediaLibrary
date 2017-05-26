@@ -64,6 +64,23 @@ namespace AITMediaLibrary
                 selectedUserLabel.Text = @"Selected User:  " + _selectedUser.UserName;
             }
         }
+        private void ArrowKeyUpDown_press(object sender, KeyEventArgs e)
+        {
+            int rowIndex = userGridView.CurrentCell.RowIndex;
+            int colIndex = userGridView.CurrentCell.ColumnIndex;
+            if (e.KeyValue == 40 && (userGridView.Rows.Count - 1) != rowIndex)
+            {
+                rowIndex++;
+                DataGridViewCellEventArgs ev = new DataGridViewCellEventArgs(colIndex, rowIndex);
+                userGridView_CellClick(sender, ev);
+            }
+            if (e.KeyValue == 38 && rowIndex != 0)
+            {
+                rowIndex--;
+                DataGridViewCellEventArgs ev = new DataGridViewCellEventArgs(colIndex, rowIndex);
+                userGridView_CellClick(sender, ev);
+            }
+        }
 
         private void refreshButton_Click(object sender, EventArgs e)
         {

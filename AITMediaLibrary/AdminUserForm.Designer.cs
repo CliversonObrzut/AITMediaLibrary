@@ -95,6 +95,7 @@
             this.userGridView.Size = new System.Drawing.Size(347, 405);
             this.userGridView.TabIndex = 1;
             this.userGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.userGridView_CellClick);
+            this.userGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ArrowKeyUpDown_press);
             // 
             // refreshButton
             // 

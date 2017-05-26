@@ -59,9 +59,26 @@ namespace AITMediaLibrary
             if (row > -1)
             {
                 List<MediaModel> medias = (List<MediaModel>)mediaGridView.DataSource;
-
                 _selectedMedia = medias.ElementAt(row);
                 selectedMediaLabel.Text = @"Selected Media:  " + _selectedMedia.MediaName;
+            }
+        }
+
+        private void ArrowKeyUpDown_press(object sender, KeyEventArgs e)
+        {
+            int rowIndex = mediaGridView.CurrentCell.RowIndex;
+            int colIndex = mediaGridView.CurrentCell.ColumnIndex;
+            if (e.KeyValue == 40 && (mediaGridView.Rows.Count - 1) != rowIndex)
+            {
+                rowIndex++;
+                DataGridViewCellEventArgs ev = new DataGridViewCellEventArgs(colIndex, rowIndex);
+                mediaGridView_CellClick(sender, ev);
+            }
+            if (e.KeyValue == 38 && rowIndex != 0)
+            {
+                rowIndex--;
+                DataGridViewCellEventArgs ev = new DataGridViewCellEventArgs(colIndex, rowIndex);
+                mediaGridView_CellClick(sender, ev);
             }
         }
 
