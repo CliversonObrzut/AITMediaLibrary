@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Data_Access;
 
 namespace Business_Logic
@@ -279,6 +280,90 @@ namespace Business_Logic
                 MediaModel media = MediaModel.Parse(row);
                 medias.Add(media);
             }
+        }
+
+        // Return all rows that matches the value in column Title, Director, Genre, Language, Publish Year and Budget
+        public List<MediaModel> GetAllThatMatches(string search)
+        {
+            List<MediaModel> medias = new List<MediaModel>();
+
+            List<MediaModel> mediasPublishYear = new List<MediaModel>();
+            List<MediaModel> mediasBudget = new List<MediaModel>();
+            var mediasTitle = ListMediaByTitle(search);
+            var mediasDirector = ListMediaByDirectorName(search);
+            var mediasGenre = ListMediaByGenre(search);
+            var mediasLanguage = ListMediaByLanguage(search);
+
+            int publishYear;
+            decimal budget;
+
+            if (int.TryParse(search, out publishYear))
+            {
+                publishYear = int.Parse(search);
+                mediasPublishYear = ListMediaByPublishYear(publishYear);
+            }
+            if (decimal.TryParse(search, out budget))
+            {
+                budget = decimal.Parse(search);
+                mediasBudget = ListMediaByBudget(budget);
+            }
+
+            if (mediasTitle.Count > 0)
+            {
+                foreach (MediaModel media in mediasTitle)
+                {
+                    if (medias.Contains(media) == false)
+                        medias.Add(media);
+                }
+            }
+
+            if (mediasDirector.Count > 0)
+            {
+                foreach (MediaModel media in mediasDirector)
+                {
+                    if (medias.All(o => o.MediaId != media.MediaId))
+                        medias.Add(media);
+                }
+            }
+
+            if (mediasGenre.Count > 0)
+            {
+                foreach (MediaModel media in mediasGenre)
+                {
+                    if (medias.All(o => o.MediaId != media.MediaId))
+                        medias.Add(media);
+                }
+            }
+
+            if (mediasLanguage.Count > 0)
+            {
+                foreach (MediaModel media in mediasLanguage)
+                {
+                    if (medias.All(o => o.MediaId != media.MediaId))
+                        medias.Add(media);
+                }
+            }
+
+            if (mediasPublishYear.Count > 0)
+            {
+                foreach (MediaModel media in mediasPublishYear)
+                {
+                    if (medias.All(o => o.MediaId != media.MediaId))
+                        medias.Add(media);
+                }
+            }
+
+            if (mediasBudget.Count > 0)
+            {
+                foreach (MediaModel media in mediasBudget)
+                {
+                    if (medias.All(o => o.MediaId != media.MediaId))
+                        medias.Add(media);
+                }
+            }
+
+            medias = medias.OrderBy(o => o.MediaId).ToList();
+            return medias;
         }
     }
 }

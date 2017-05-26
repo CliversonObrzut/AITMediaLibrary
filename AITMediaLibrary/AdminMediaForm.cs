@@ -317,7 +317,7 @@ namespace AITMediaLibrary
         {
             try
             {
-                List<MediaModel> medias = _mediaLogic.ListMediaByTitle(searchMediaTextBox.Text);
+                List<MediaModel> medias = _mediaLogic.GetAllThatMatches(searchMediaTextBox.Text);
                 mediaGridView.DataSource = medias;
                 SelectedMediaOnLoad(medias);
                 CleanTextBoxes();
