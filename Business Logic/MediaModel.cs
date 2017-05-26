@@ -20,6 +20,11 @@ namespace Business_Logic
         public string Genre { get; set; }
         public decimal Budget { get; set; }
 
+        /// <summary>
+        /// Binds the media data from Database to media model
+        /// </summary>
+        /// <param name="mediaRow"></param>
+        /// <returns></returns>
         public static MediaModel Parse(MediaDS.ViewMediaRow mediaRow)
         {
             if (mediaRow == null)

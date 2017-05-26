@@ -15,6 +15,11 @@ namespace Business_Logic
         public DateTime ActualReturnDate { get; set; }
         public decimal LateFee { get; set; }
 
+        /// <summary>
+        /// Binds the borrow data from Database to borrow model.
+        /// </summary>
+        /// <param name="borrowRow"></param>
+        /// <returns></returns>
         public static BorrowModel Parse(MediaDS.TabBorrowRow borrowRow)
         {
             if (borrowRow == null)
@@ -34,6 +39,10 @@ namespace Business_Logic
             return borrow;
         }
 
+        /// <summary>
+        /// Returns if the borrow is late or not.
+        /// </summary>
+        /// <returns></returns>
         public bool IsLate()
         {
             TimeSpan late = ActualReturnDate - ReturnDate;
@@ -42,6 +51,10 @@ namespace Business_Logic
             return false;
         }
 
+        /// <summary>
+        /// Returns if the borrow is currently active or is closed.
+        /// </summary>
+        /// <returns></returns>
         public bool IsActive()
         {
             if (ActualReturnDate == DateTime.Parse("01/01/2000"))

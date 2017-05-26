@@ -12,6 +12,10 @@ namespace Business_Logic
             _userDAO = new UserDAO();
         }
 
+        /// <summary>
+        /// Returns the list of users as user model.
+        /// </summary>
+        /// <returns></returns>
         public List<UserModel> GetListOfUsers()
         {
             List<UserModel> users = new List<UserModel>();
@@ -21,6 +25,12 @@ namespace Business_Logic
             return users;
         }
 
+        /// <summary>
+        /// Returns a list of users by user name and password as user model.
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
         public List<UserModel> GetListOfUsersByUserNameAndPassword(string username, string password)
         {
             List<UserModel> users = new List<UserModel>();
@@ -30,6 +40,11 @@ namespace Business_Logic
             return users;
         }
 
+        /// <summary>
+        /// Returns a list of users by user name as user model
+        /// </summary>
+        /// <param name="username"></param>
+        /// <returns></returns>
         public List<UserModel> GetListOfUsersByUserName(string username)
         {
             List<UserModel> users = new List<UserModel>();
@@ -39,6 +54,11 @@ namespace Business_Logic
             return users;
         }
 
+        /// <summary>
+        /// Binds the list of users from Database to a list of user model.
+        /// </summary>
+        /// <param name="users"></param>
+        /// <param name="userTable"></param>
         private static void GetListOfUsersFromDataTable(List<UserModel> users, UserDS.TabUserDataTable userTable)
         {
             foreach (UserDS.TabUserRow row in userTable.Rows)
@@ -48,11 +68,26 @@ namespace Business_Logic
             }
         }
 
+        /// <summary>
+        /// Adds a new user to Database.
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <param name="userLevel"></param>
+        /// <param name="email"></param>
+        /// <returns></returns>
         public int AddNewUser(string username, string password, int userLevel, string email)
         {
             return _userDAO.InsertNewUser(username, password, userLevel, email);
         }
 
+        /// <summary>
+        /// Updates the password of a selected user if the current logged in user has level 3 of access.
+        /// </summary>
+        /// <param name="newPassword"></param>
+        /// <param name="userID"></param>
+        /// <param name="userLevel"></param>
+        /// <returns></returns>
         public int UpdatePassword(string newPassword, int userID, int userLevel)
         {
             if (userLevel < 3)
@@ -60,6 +95,12 @@ namespace Business_Logic
             return _userDAO.UpdatePassword(newPassword, userID);
         }
 
+        /// <summary>
+        /// Delete a user from Datatable if the current logged in user has rights to do it.
+        /// </summary>
+        /// <param name="userID"></param>
+        /// <param name="userLevel"></param>
+        /// <returns></returns>
         public int DeleteUserByUserID(int userID, int userLevel)
         {
             if (userLevel < 3)

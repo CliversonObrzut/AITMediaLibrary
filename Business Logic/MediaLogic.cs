@@ -18,6 +18,10 @@ namespace Business_Logic
             _mediaDao = new MediaDAO();
         }
 
+        /// <summary>
+        /// Returns all medias as a list of media models.
+        /// </summary>
+        /// <returns></returns>
         public List<MediaModel> ListMedia()
         {
             List<MediaModel> medias = new List<MediaModel>();
@@ -27,6 +31,11 @@ namespace Business_Logic
             return medias;
         }
 
+        /// <summary>
+        /// Returns a list of medias by publish year as media models.
+        /// </summary>
+        /// <param name="publishYear"></param>
+        /// <returns></returns>
         public List<MediaModel> ListMediaByPublishYear(int publishYear)
         {
             List<MediaModel> medias = new List<MediaModel>();
@@ -36,6 +45,11 @@ namespace Business_Logic
             return medias;
         }
 
+        /// <summary>
+        /// Returns a list of medias by director name as media models.
+        /// </summary>
+        /// <param name="directorName"></param>
+        /// <returns></returns>
         public List<MediaModel> ListMediaByDirectorName(string directorName)
         {
             List<MediaModel> medias = new List<MediaModel>();
@@ -45,6 +59,11 @@ namespace Business_Logic
             return medias;
         }
 
+        /// <summary>
+        /// Returns a list of medias by title as media models.
+        /// </summary>
+        /// <param name="title"></param>
+        /// <returns></returns>
         public List<MediaModel> ListMediaByTitle(string title)
         {
             List<MediaModel> medias = new List<MediaModel>();
@@ -54,6 +73,11 @@ namespace Business_Logic
             return medias;
         }
 
+        /// <summary>
+        /// Returns a list of medias by language as media models.
+        /// </summary>
+        /// <param name="language"></param>
+        /// <returns></returns>
         public List<MediaModel> ListMediaByLanguage(string language)
         {
             List<MediaModel> medias = new List<MediaModel>();
@@ -63,6 +87,11 @@ namespace Business_Logic
             return medias;
         }
 
+        /// <summary>
+        /// Returns a list of medias by genre as media models.
+        /// </summary>
+        /// <param name="genre"></param>
+        /// <returns></returns>
         public List<MediaModel> ListMediaByGenre(string genre)
         {
             List<MediaModel> medias = new List<MediaModel>();
@@ -72,6 +101,11 @@ namespace Business_Logic
             return medias;
         }
 
+        /// <summary>
+        /// Returns a list of medias by budget as media models.
+        /// </summary>
+        /// <param name="budget"></param>
+        /// <returns></returns>
         public List<MediaModel> ListMediaByBudget(decimal budget)
         {
             List<MediaModel> medias = new List<MediaModel>();
@@ -81,6 +115,10 @@ namespace Business_Logic
             return medias;
         }
 
+        /// <summary>
+        /// Retursn all genre as a list of pair models.
+        /// </summary>
+        /// <returns></returns>
         public List<PairModel> ListGenre()
         {
             List<PairModel> pairs = new List<PairModel>();
@@ -94,6 +132,10 @@ namespace Business_Logic
             return pairs;
         }
 
+        /// <summary>
+        /// Returns all directors as a list of pair models.
+        /// </summary>
+        /// <returns></returns>
         public List<PairModel> ListDirector()
         {
             List<PairModel> pairs = new List<PairModel>();
@@ -107,6 +149,10 @@ namespace Business_Logic
             return pairs;
         }
 
+        /// <summary>
+        /// Returns all languages as a list of pair models.
+        /// </summary>
+        /// <returns></returns>
         public List<PairModel> ListLanguage()
         {
             List<PairModel> pairs = new List<PairModel>();
@@ -120,36 +166,83 @@ namespace Business_Logic
             return pairs;
         }
 
+        /// <summary>
+        /// Add a new genre to Database.
+        /// </summary>
+        /// <param name="genreName"></param>
+        /// <returns></returns>
         public int AddNewGenre(string genreName)
         {
             return _mediaDao.AddGenre(genreName);
         }
 
+        /// <summary>
+        /// Add a new language to Database.
+        /// </summary>
+        /// <param name="languageName"></param>
+        /// <returns></returns>
         public int AddNewLanguage(string languageName)
         {
             return _mediaDao.AddLanguage(languageName);
         }
+
+        /// <summary>
+        /// Add a new director to Database.
+        /// </summary>
+        /// <param name="directorName"></param>
+        /// <returns></returns>
         public int AddNewDirector(string directorName)
         {
             return _mediaDao.AddDirector(directorName);
         }
 
+        /// <summary>
+        /// Add a new media to Database.
+        /// </summary>
+        /// <param name="title"></param>
+        /// <param name="genreID"></param>
+        /// <param name="directorID"></param>
+        /// <param name="languageID"></param>
+        /// <param name="publishYear"></param>
+        /// <param name="budget"></param>
+        /// <returns></returns>
         public int AddNewMedia(string title, int genreID, int directorID, int languageID, int publishYear,
             decimal budget)
         {
             return _mediaDao.AddMedia(title, genreID, directorID, languageID, publishYear, budget);
         }
 
+        /// <summary>
+        /// Update a selected media in Database. 
+        /// </summary>
+        /// <param name="title"></param>
+        /// <param name="genreID"></param>
+        /// <param name="directorID"></param>
+        /// <param name="languageID"></param>
+        /// <param name="publishYear"></param>
+        /// <param name="budget"></param>
+        /// <param name="mediaID"></param>
+        /// <returns></returns>
         public int UpdateMedia(string title, int genreID, int directorID, int languageID, int publishYear, decimal budget, int mediaID)
         {
             return _mediaDao.UpdateMedia(mediaID, title, genreID, directorID, languageID, publishYear, budget);
         }
 
+        /// <summary>
+        /// Delete a media from Database.
+        /// </summary>
+        /// <param name="mediaID"></param>
+        /// <returns></returns>
         public int DeleteMedia(int mediaID)
         {
             return _mediaDao.DeleteMedia(mediaID);
         }
 
+        /// <summary>
+        /// Returns a reserve by media as a reserve model.
+        /// </summary>
+        /// <param name="mediaID"></param>
+        /// <returns></returns>
         public ReserveModel GetReserveByMediaID(int mediaID)
         {
             MediaDS.TabReservedDataTable reserveTable = _mediaDao.GetReservedByMedia(mediaID);
@@ -159,6 +252,11 @@ namespace Business_Logic
             return reserve;
         }
 
+        /// <summary>
+        /// Returns a reserve by user as a reserve model.
+        /// </summary>
+        /// <param name="userID"></param>
+        /// <returns></returns>
         public ReserveModel GetReservedByUser(int userID)
         {
             MediaDS.TabReservedDataTable reserveTable = _mediaDao.GetReservedByUser(userID);
@@ -168,6 +266,10 @@ namespace Business_Logic
             return reserve;
         }
 
+        /// <summary>
+        /// Returns the list of reserved medias as media models
+        /// </summary>
+        /// <returns></returns>
         public List<MediaModel> GetAllReserves()
         {
             MediaDS.TabReservedDataTable reserveTable = _mediaDao.GetAllReserves();
@@ -182,16 +284,32 @@ namespace Business_Logic
             return medias;
         }
 
+        /// <summary>
+        /// Add a nre reserve to Database
+        /// </summary>
+        /// <param name="mediaID"></param>
+        /// <param name="userID"></param>
+        /// <returns></returns>
         public int AddReserve(int mediaID, int userID)
         {
             return _mediaDao.AddReserve(mediaID, userID, DateTime.Now.ToString("dd/MM/yyyy"));
         }
 
+        /// <summary>
+        /// Delete a selected media from database.
+        /// </summary>
+        /// <param name="RID"></param>
+        /// <returns></returns>
         public int DeleteReserve(int RID)
         {
             return _mediaDao.DeleteReserve(RID);
         }
 
+        /// <summary>
+        /// Returns the list of medias currently borrowed by a specific user
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
         public List<MediaModel> GetBorrowedByUser(int userId)
         {
             MediaDS.TabBorrowDataTable borrowTable = _mediaDao.GetBorrowsByUser(userId);
@@ -210,6 +328,11 @@ namespace Business_Logic
             return medias;
         }
 
+        /// <summary>
+        /// Returns a borrow by media if its currently borrowed.
+        /// </summary>
+        /// <param name="mediaID"></param>
+        /// <returns></returns>
         public BorrowModel GetBorrowedByMedia(int mediaID)
         {
             MediaDS.TabBorrowDataTable borrowTable = _mediaDao.GetBorrowedByMedia(mediaID);
@@ -226,6 +349,11 @@ namespace Business_Logic
             return borrow;
         }
 
+        /// <summary>
+        /// Returns a borrow by id as borrow model.
+        /// </summary>
+        /// <param name="borrowID"></param>
+        /// <returns></returns>
         public BorrowModel GetBorrowById(int borrowID)
         {
             MediaDS.TabBorrowDataTable borrowTable = _mediaDao.GetBorrowById(borrowID);
@@ -236,6 +364,10 @@ namespace Business_Logic
             return borrow;
         }
 
+        /// <summary>
+        /// Returns the list of all currently borrowed medias.
+        /// </summary>
+        /// <returns></returns>
         public List<MediaModel> GetAllBorrowed()
         {
             MediaDS.TabBorrowDataTable borrowTable = _mediaDao.GetAllBorrows();
@@ -254,11 +386,23 @@ namespace Business_Logic
             return medias;
         }
 
+        /// <summary>
+        /// Add a new borrow to Database.
+        /// </summary>
+        /// <param name="mediaID"></param>
+        /// <param name="userID"></param>
+        /// <returns></returns>
         public int AddBorrow(int mediaID, int userID)
         {
             return _mediaDao.AddBorrow(userID, mediaID, DateTime.Now.ToString("dd/MM/yyyy"),(DateTime.Now.AddDays(7)).ToString("dd/MM/yyyy"));
         }
 
+        /// <summary>
+        /// Update the borrow data in database when a media is returned and the borrow is closed. 
+        /// Also, it calculates the fee if the return is late.
+        /// </summary>
+        /// <param name="BID"></param>
+        /// <returns></returns>
         public int ReturnBorrow(int BID)
         {
             decimal lateFee = 0;
@@ -273,6 +417,11 @@ namespace Business_Logic
             return _mediaDao.updateBorrow(BID, DateTime.Now.ToString("dd/MM/yyyy"), lateFee);
         }
 
+        /// <summary>
+        /// Binds a list of medias from Database to a list of media models.
+        /// </summary>
+        /// <param name="mediaTable"></param>
+        /// <param name="medias"></param>
         private static void GetListOfMediasFromDataTable(MediaDS.ViewMediaDataTable mediaTable, List<MediaModel> medias)
         {
             foreach (MediaDS.ViewMediaRow row in mediaTable.Rows)
@@ -282,7 +431,12 @@ namespace Business_Logic
             }
         }
 
-        // Return all rows that matches the value in column Title, Director, Genre, Language, Publish Year and Budget
+        /// <summary>
+        /// Return a list of medias that matches the value in columns Title, Director, Genre, Language, Publish Year and Budget
+        /// </summary>
+        /// <param name="search"></param>
+        /// <returns></returns>
+        // 
         public List<MediaModel> GetAllThatMatches(string search)
         {
             List<MediaModel> medias = new List<MediaModel>();

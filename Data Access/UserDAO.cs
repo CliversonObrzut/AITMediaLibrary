@@ -14,6 +14,10 @@ namespace Data_Access
             _tabUserTableAdapter = new TabUserTableAdapter();
         }
 
+        /// <summary>
+        /// Returns all users from Database
+        /// </summary>
+        /// <returns></returns>
         public UserDS.TabUserDataTable GetUserDataTable()
         {
             try
@@ -27,6 +31,12 @@ namespace Data_Access
             }
         }
 
+        /// <summary>
+        /// Returns user data by its name and password (Login)
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
         public UserDS.TabUserDataTable GetUserByUserNamePassword(string username, string password)
         {
             try
@@ -40,6 +50,11 @@ namespace Data_Access
             }
         }
 
+        /// <summary>
+        /// Returns user data by its name
+        /// </summary>
+        /// <param name="username"></param>
+        /// <returns></returns>
         public UserDS.TabUserDataTable GetUserByUserName(string username)
         {
             try
@@ -53,16 +68,35 @@ namespace Data_Access
             }
         }
 
+        /// <summary>
+        /// Insert new user into Database
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <param name="password"></param>
+        /// <param name="userLevel"></param>
+        /// <param name="email"></param>
+        /// <returns></returns>
         public int InsertNewUser(string userName, string password, int userLevel, string email)
         {
             return _tabUserTableAdapter.InsertNewUser(userName, password, userLevel, email);
         }
 
+        /// <summary>
+        /// Updates user´s password in Database
+        /// </summary>
+        /// <param name="password"></param>
+        /// <param name="userID"></param>
+        /// <returns></returns>
         public int UpdatePassword(string password, int userID)
         {
             return _tabUserTableAdapter.UpdatePassword(password, userID);
         }
 
+        /// <summary>
+        /// Delete user from Database
+        /// </summary>
+        /// <param name="userID"></param>
+        /// <returns></returns>
         public int DeleteUserByUserID(int userID)
         {
             return _tabUserTableAdapter.DeleteUserByUserID(userID);

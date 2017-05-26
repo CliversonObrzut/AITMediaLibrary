@@ -157,24 +157,29 @@ namespace AITMediaLibrary
             }
         }
 
+        /// <summary>
+        /// Change the presentation of buttons Reserve and Borrow based on the condition in database.
+        /// </summary>
         private void CheckReservesAndBorrows()
         {
             ReserveModel reserve = _mediaLogic.GetReserveByMediaID(_selectedMedia.MediaId);
             BorrowModel borrow = _mediaLogic.GetBorrowedByMedia(_selectedMedia.MediaId);
 
+            // if the media is reserved by the current user the button became invisible.
             if (reserve != null && reserve.UID == CurrentUser.UserID)
             {
                 reserveButton.Visible = false;
             }
-            else
+            else // otherwise the reserve button is visible.
             {
                 reserveButton.Visible = true;
+                // but if the media is currently borrowed by the current user, the reserve and unreserve button are disabled.
                 if (borrow != null && borrow.UID == CurrentUser.UserID)
                 {
                     reserveButton.Enabled = false;
                     unreserveButton.Enabled = false;
                 }
-                else
+                else // otherwise, they are active.
                 {
                     reserveButton.Enabled = true;
                     unreserveButton.Enabled = true;
@@ -182,6 +187,7 @@ namespace AITMediaLibrary
                     
             }
 
+            // if the selected media is currently borrowed, the borrow button become disabled.
             if (borrow != null)
                 borrowButton.Enabled = false;
             else

@@ -7,15 +7,19 @@ namespace Data_Access
     [SuppressMessage("ReSharper", "InconsistentNaming")]
     public class MediaDAO
     {
-        private MediaDS _mediaDataSet;
+        
+        private readonly MediaDS _mediaDataSet;
         private readonly ViewMediaTableAdapter _viewMediaTableAdapter;
-        private TabMediaTableAdapter _mediaTableAdapter;
-        private TabLanguageTableAdapter _languageTableAdapter;
-        private TabGenreTableAdapter _genreTableAdapter;
-        private TabDirectorTableAdapter _directorTableAdapter;
-        private TabReservedTableAdapter _reserveTableAdapter;
-        private TabBorrowTableAdapter _borrowTableAdapter;
+        private readonly TabMediaTableAdapter _mediaTableAdapter;
+        private readonly TabLanguageTableAdapter _languageTableAdapter;
+        private readonly TabGenreTableAdapter _genreTableAdapter;
+        private readonly TabDirectorTableAdapter _directorTableAdapter;
+        private readonly TabReservedTableAdapter _reserveTableAdapter;
+        private readonly TabBorrowTableAdapter _borrowTableAdapter;
 
+        /// <summary>
+        /// MediaDAO constructor
+        /// </summary>
         public MediaDAO()
         {
             _mediaDataSet = new MediaDS();
@@ -28,6 +32,10 @@ namespace Data_Access
             _borrowTableAdapter = new TabBorrowTableAdapter();
         }
 
+        /// <summary>
+        /// Returns all media from Database
+        /// </summary>
+        /// <returns></returns>
         public MediaDS.ViewMediaDataTable ListMedia()
         {
             try
@@ -41,6 +49,11 @@ namespace Data_Access
             }
         }
 
+        /// <summary>
+        /// Returns media by id
+        /// </summary>
+        /// <param name="mediaID"></param>
+        /// <returns></returns>
         public MediaDS.ViewMediaDataTable GetMediaById(int mediaID)
         {
             try
@@ -54,6 +67,11 @@ namespace Data_Access
             }
         }
 
+        /// <summary>
+        /// Returns medias by publish year.
+        /// </summary>
+        /// <param name="publishYear"></param>
+        /// <returns></returns>
         public MediaDS.ViewMediaDataTable ListMediaByPublishYear(int publishYear)
         {
             try
@@ -67,6 +85,11 @@ namespace Data_Access
             }
         }
 
+        /// <summary>
+        /// Returns medias by director name. It can be a partial name.
+        /// </summary>
+        /// <param name="directorName"></param>
+        /// <returns></returns>
         public MediaDS.ViewMediaDataTable ListMediaByDirectorName(string directorName)
         {
             try
@@ -80,6 +103,11 @@ namespace Data_Access
             }
         }
 
+        /// <summary>
+        /// Returns medias by genre. It can be a partial name.
+        /// </summary>
+        /// <param name="genre"></param>
+        /// <returns></returns>
         public MediaDS.ViewMediaDataTable ListMediaByGenre(string genre)
         {
             try
@@ -93,6 +121,11 @@ namespace Data_Access
             }
         }
 
+        /// <summary>
+        /// Returns medias by language name. It can be a partial name.
+        /// </summary>
+        /// <param name="language"></param>
+        /// <returns></returns>
         public MediaDS.ViewMediaDataTable ListMediaByLanguage(string language)
         {
             try
@@ -106,6 +139,11 @@ namespace Data_Access
             }
         }
 
+        /// <summary>
+        /// Returns medias by title. It can be a partial name.
+        /// </summary>
+        /// <param name="title"></param>
+        /// <returns></returns>
         public MediaDS.ViewMediaDataTable ListMediaByTitle(string title)
         {
             try
@@ -119,6 +157,11 @@ namespace Data_Access
             }
         }
 
+        /// <summary>
+        /// Returns medias by budget
+        /// </summary>
+        /// <param name="budget"></param>
+        /// <returns></returns>
         public MediaDS.ViewMediaDataTable ListMediaByBudget(decimal budget)
         {
             try
@@ -132,6 +175,10 @@ namespace Data_Access
             }
         }
 
+        /// <summary>
+        /// Returns all languages from Database.
+        /// </summary>
+        /// <returns></returns>
         public MediaDS.TabLanguageDataTable ListLanguage()
         {
             try
@@ -145,6 +192,10 @@ namespace Data_Access
             }
         }
 
+        /// <summary>
+        /// Returns all directors from Database.
+        /// </summary>
+        /// <returns></returns>
         public MediaDS.TabDirectorDataTable ListDirector()
         {
             try
@@ -158,6 +209,10 @@ namespace Data_Access
             }
         }
 
+        /// <summary>
+        /// Returns all genre from Database.
+        /// </summary>
+        /// <returns></returns>
         public MediaDS.TabGenreDataTable ListGenre()
         {
             try
@@ -171,36 +226,82 @@ namespace Data_Access
             }
         }
 
+        /// <summary>
+        /// Add new genre to Database.
+        /// </summary>
+        /// <param name="genreName"></param>
+        /// <returns></returns>
         public int AddGenre(string genreName)
         {
             return _genreTableAdapter.AddGenre(genreName);
         }
 
+        /// <summary>
+        /// Add new language to Database.
+        /// </summary>
+        /// <param name="languageName"></param>
+        /// <returns></returns>
         public int AddLanguage(string languageName)
         {
             return _languageTableAdapter.AddLanguage(languageName);
         }
 
+        /// <summary>
+        /// Add new director to Database.
+        /// </summary>
+        /// <param name="directorName"></param>
+        /// <returns></returns>
         public int AddDirector(string directorName)
         {
             return _directorTableAdapter.AddDirector(directorName);
         }
 
+        /// <summary>
+        /// Add new media to Database.
+        /// </summary>
+        /// <param name="title"></param>
+        /// <param name="genreID"></param>
+        /// <param name="directorID"></param>
+        /// <param name="languageID"></param>
+        /// <param name="publishYear"></param>
+        /// <param name="budget"></param>
+        /// <returns></returns>
         public int AddMedia(string title, int genreID, int directorID, int languageID, int publishYear, decimal budget)
         {
             return _mediaTableAdapter.AddMedia(title, genreID, directorID, languageID, publishYear, budget);
         }
 
+        /// <summary>
+        /// Update a selected media in Database.
+        /// </summary>
+        /// <param name="mediaID"></param>
+        /// <param name="title"></param>
+        /// <param name="genreID"></param>
+        /// <param name="directorID"></param>
+        /// <param name="languageID"></param>
+        /// <param name="publishYear"></param>
+        /// <param name="budget"></param>
+        /// <returns></returns>
         public int UpdateMedia(int mediaID, string title, int genreID, int directorID, int languageID, int publishYear, decimal budget)
         {
             return _mediaTableAdapter.UpdateMedia(title, genreID, directorID, languageID, publishYear, budget, mediaID);
         }
 
+        /// <summary>
+        /// Delete a selected media from Database.
+        /// </summary>
+        /// <param name="mediaID"></param>
+        /// <returns></returns>
         public int DeleteMedia(int mediaID)
         {
             return _mediaTableAdapter.DeleteMedia(mediaID);
         }
 
+        /// <summary>
+        /// Returns reserve by media.
+        /// </summary>
+        /// <param name="mediaID"></param>
+        /// <returns></returns>
         public MediaDS.TabReservedDataTable GetReservedByMedia(int mediaID)
         {
             try
@@ -214,6 +315,11 @@ namespace Data_Access
             }
         }
 
+        /// <summary>
+        /// Returns all reserves by user
+        /// </summary>
+        /// <param name="userID"></param>
+        /// <returns></returns>
         public MediaDS.TabReservedDataTable GetReservedByUser(int userID)
         {
             try
@@ -227,6 +333,10 @@ namespace Data_Access
             }
         }
 
+        /// <summary>
+        /// Returns all reserves from Database.
+        /// </summary>
+        /// <returns></returns>
         public MediaDS.TabReservedDataTable GetAllReserves()
         {
             try
@@ -240,16 +350,32 @@ namespace Data_Access
             }
         }
 
+        /// <summary>
+        /// Add a new reserve to Database.
+        /// </summary>
+        /// <param name="mediaID"></param>
+        /// <param name="userID"></param>
+        /// <param name="date"></param>
+        /// <returns></returns>
         public int AddReserve(int mediaID, int userID, string date)
         {
             return _reserveTableAdapter.AddReserve(userID, mediaID, date);
         }
 
+        /// <summary>
+        /// Remove a reserve from Database.
+        /// </summary>
+        /// <param name="RID"></param>
+        /// <returns></returns>
         public int DeleteReserve(int RID)
         {
             return _reserveTableAdapter.DeleteReserve(RID);
         }
 
+        /// <summary>
+        /// Returns all borrows from Database. (Actives and inactives)
+        /// </summary>
+        /// <returns></returns>
         public MediaDS.TabBorrowDataTable GetAllBorrows()
         {
             try
@@ -263,6 +389,11 @@ namespace Data_Access
             }
         }
 
+        /// <summary>
+        /// Returns a borrow by id.
+        /// </summary>
+        /// <param name="BID"></param>
+        /// <returns></returns>
         public MediaDS.TabBorrowDataTable GetBorrowById(int BID)
         {
             try
@@ -275,6 +406,12 @@ namespace Data_Access
                 return null;
             }
         }
+
+        /// <summary>
+        /// Returns all borrows by media. Active and inactive.
+        /// </summary>
+        /// <param name="mediaID"></param>
+        /// <returns></returns>
 
         public MediaDS.TabBorrowDataTable GetBorrowedByMedia(int mediaID)
         {
@@ -289,6 +426,11 @@ namespace Data_Access
             }
         }
 
+        /// <summary>
+        /// Returns all medias by user. Active and Inactive.
+        /// </summary>
+        /// <param name="userID"></param>
+        /// <returns></returns>
         public MediaDS.TabBorrowDataTable GetBorrowsByUser(int userID)
         {
             try
@@ -302,11 +444,26 @@ namespace Data_Access
             }
         }
 
+        /// <summary>
+        /// Adds a new borrow to Database.
+        /// </summary>
+        /// <param name="userID"></param>
+        /// <param name="mediaID"></param>
+        /// <param name="borrowDate"></param>
+        /// <param name="returnDate"></param>
+        /// <returns></returns>
         public int AddBorrow(int userID, int mediaID, string borrowDate, string returnDate)
         {
             return _borrowTableAdapter.AddBorrow(userID, mediaID, borrowDate, returnDate);
         }
 
+        /// <summary>
+        /// Updates a selected borrow.
+        /// </summary>
+        /// <param name="borrowID"></param>
+        /// <param name="actualReturnDate"></param>
+        /// <param name="LateFee"></param>
+        /// <returns></returns>
         public int updateBorrow(int borrowID, string actualReturnDate, decimal LateFee)
         {
             return _borrowTableAdapter.UpdateBorrow(actualReturnDate, LateFee, borrowID);

@@ -7,6 +7,11 @@ namespace Business_Logic
         public int PairId { get; set; }
         public string PairName { get; set; }
 
+        /// <summary>
+        /// Binds the genre data from Database to pair model.
+        /// </summary>
+        /// <param name="genreRow"></param>
+        /// <returns></returns>
         public static PairModel Parse(MediaDS.TabGenreRow genreRow)
         {
             if (genreRow == null)
@@ -21,6 +26,11 @@ namespace Business_Logic
             return pair;
         }
 
+        /// <summary>
+        /// Binds the director data from Database to pair model.
+        /// </summary>
+        /// <param name="directorRow"></param>
+        /// <returns></returns>
         public static PairModel Parse(MediaDS.TabDirectorRow directorRow)
         {
             if (directorRow == null)
@@ -35,6 +45,11 @@ namespace Business_Logic
             return pair;
         }
 
+        /// <summary>
+        /// Binds the language data from Database to pair model.
+        /// </summary>
+        /// <param name="languageRow"></param>
+        /// <returns></returns>
         public static PairModel Parse(MediaDS.TabLanguageRow languageRow)
         {
             if (languageRow == null)

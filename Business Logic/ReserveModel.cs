@@ -15,6 +15,11 @@ namespace Business_Logic
 
         public DateTime ReservedDate { get; set; }
 
+        /// <summary>
+        /// Binds the reserve data from Database to reserve model.
+        /// </summary>
+        /// <param name="reserveRow"></param>
+        /// <returns></returns>
         public static ReserveModel Parse(MediaDS.TabReservedRow reserveRow)
         {
             if (reserveRow == null)

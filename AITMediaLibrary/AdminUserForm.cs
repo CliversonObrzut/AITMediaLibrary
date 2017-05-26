@@ -54,13 +54,11 @@ namespace AITMediaLibrary
         private void userGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int row = e.RowIndex;
-            if (row > -1)// -1 is the header row, dont care about it
+            if (row > -1)
             {
-                //cast datasouece from "object" to list of models. throw exception if not actually
-                // a list of user models
                 List<UserModel> users = (List<UserModel>)userGridView.DataSource;
 
-                _selectedUser = users.ElementAt(row);//get from this position
+                _selectedUser = users.ElementAt(row);
                 selectedUserLabel.Text = @"Selected User:  " + _selectedUser.UserName;
             }
         }
@@ -94,7 +92,6 @@ namespace AITMediaLibrary
 
         private void updatePasswordButton_Click(object sender, EventArgs e)
         {
-            //TODO for assignment: make sure password matches basic criteria
             if (_selectedUser != null)
             {
                 int rowsAffected = _userLogic.UpdatePassword(newPasswordTextBox.Text, _selectedUser.UserID, CurrentUser.UserLevel);
@@ -145,11 +142,9 @@ namespace AITMediaLibrary
         {
             if (userNameTextBox.Text != "" && passwordTextBox.Text != "" && emailTextBox.Text != "")
             {
-                //get enum back out of datasource of combo box......................
                 AppEnum.UserLevel userLevel = (AppEnum.UserLevel)Enum.Parse(typeof(AppEnum.UserLevel), userLevelComboBox.Text);
 
                 _userLogic.AddNewUser(userNameTextBox.Text, passwordTextBox.Text, (int)userLevel, emailTextBox.Text);
-                //if affectedRows > 0, sucess!
                 MessageBox.Show(@"New user successfully created!");
                 RefreshUserList();
             }
